@@ -1,1 +1,1 @@
-# labs12-wellness-bet-exercise-FE
+# Wellness Bet - Exercise
