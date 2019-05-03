@@ -1,47 +1,35 @@
-import GroupList from '../Groups/GroupList'
-import React, { Component } from 'react';
+import React from "react";
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import * as ROUTES from '../../constants/routes';
+import Navigation from '../Navigation';
+import LandingPage from '../Landing';
+import SignUpPage from '../SignUp';
+import SignInPage from '../SignIn';
+import PasswordForgetPage from '../PasswordForget';
+import AdminPage from '../AdminGroupDash';
+import Home from '../Home'
 
 
-class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      groups: []
-    };
+class App extends React.Component {
+  render(){
+    return(
+      <Router>
+        <div>
+          <Navigation />
+
+          <hr />
+          <Route exact path={ROUTES.LANDING} component={LandingPage} />
+          <Route path={ROUTES.HOME} component={Home} />
+          <Route path={ROUTES.SIGN_UP} component={SignUpPage} />
+          <Route path={ROUTES.SIGN_IN} component={SignInPage} />
+          <Route path={ROUTES.PASSWORD_FORGET} component={PasswordForgetPage} />
+          <Route path={ROUTES.ADMIN} component={AdminPage} />
+        </div>
+      </Router>
+    )
   }
-
-  
-
-  componentDidMount() {
-    this.getGroups('https://swapi.co/api/people');
-  }
-
-  getGroups = URL => {
-  
-    fetch(URL)
-      .then(res => {
-        return res.json();
-      })
-      .then(data => {
-        this.setState({ groups: data.results });
-      })
-      .catch(err => {
-        throw new Error(err);
-      });
-  };
-
-  render() {
-    return (
-      <div className="App">
-        <h1 className="Header">Groups</h1>
-        
-        <GroupList groups = {this.state.groups}/>
-        
-      </div>
-    );
-  }
-
-  
 }
+  
+  
 
 export default App;
