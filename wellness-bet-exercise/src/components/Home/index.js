@@ -8,7 +8,7 @@ class Home extends React.Component {
 
   componentDidMount() {
     axios
-      .get('http://localhost:5000/api/users')
+      .get('https://wellness-bet.herokuapp.com/api/users/')
       .then(res => {
         this.setState({
           users: res.data
