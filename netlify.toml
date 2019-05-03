@@ -1,0 +1,4 @@
+[build]
+base = "wellness-bet-exercise/"
+publish = "wellness-bet-exercise/build/"
+command = "yarn build"
