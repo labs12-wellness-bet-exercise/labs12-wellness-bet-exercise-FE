@@ -41,7 +41,6 @@ class App extends React.Component {
           <Route exact path={ROUTES.LANDING} component={LandingPage} />
           <Route path={ROUTES.HOME} component={Home} />
           <Route path={ROUTES.SIGN_IN} component={SignInPage} />
-          <Route path={ROUTES.PASSWORD_FORGET} component={PasswordForgetPage} />
           <Route path={ROUTES.ADMIN} component={AdminPage} /> 
           <div>
             {this.state.user ? <Home /> : <SignInPage /> }
