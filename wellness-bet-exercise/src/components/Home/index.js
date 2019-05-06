@@ -1,5 +1,6 @@
 import React from "react";
 import axios from 'axios';
+import fire from '../../config/fire';
 
 class Home extends React.Component {
   state= {
@@ -19,9 +20,14 @@ class Home extends React.Component {
       })
   }
 
+  logout = () => {
+    fire.auth().signOut();
+  }
+
  render(){
    return(
      <div>
+       <button onClick={this.logout}>logout</button>
        <h1>Home</h1>
        {this.state.users ?
          this.state.users.map(user => {
