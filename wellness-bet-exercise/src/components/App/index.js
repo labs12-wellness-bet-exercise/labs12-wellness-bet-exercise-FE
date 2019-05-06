@@ -4,7 +4,6 @@ import * as ROUTES from '../../constants/routes';
 import Navigation from '../Navigation';
 import LandingPage from '../Landing';
 import SignInPage from '../SignIn';
-import PasswordForgetPage from '../PasswordForget';
 import AdminPage from '../AdminGroupDash';
 import Home from '../Home'
 import fire from '../../config/fire.js';
