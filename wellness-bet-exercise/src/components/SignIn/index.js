@@ -20,6 +20,7 @@ class SignIn extends React.Component {
   render() {
     return (
       <div>
+        <h1>Welcome to Wellness Bet Fitness!</h1>
         <StyledFirebaseAuth 
         uiConfig={firebaseuiConfig} 
         firebaseAuth={fire.auth()}

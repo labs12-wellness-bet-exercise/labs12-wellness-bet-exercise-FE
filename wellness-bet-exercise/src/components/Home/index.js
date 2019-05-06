@@ -1,5 +1,6 @@
 import React from "react";
-import axios from 'axios';
+import axios from 'axios'; 
+import Navigation from '../Navigation';
 import fire from '../../config/fire';
 
 class Home extends React.Component {
@@ -27,6 +28,7 @@ class Home extends React.Component {
  render(){
    return(
      <div>
+         <Navigation />
        <button onClick={this.logout}>logout</button>
        <h1>Home</h1>
        {this.state.users ?
