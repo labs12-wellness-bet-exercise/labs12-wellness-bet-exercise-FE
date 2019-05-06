@@ -31,6 +31,7 @@ class Home extends React.Component {
          <Navigation />
        <button onClick={this.logout}>logout</button>
        <h1>Home</h1>
+       <hr />
        {this.state.users ?
          this.state.users.map(user => {
            return (

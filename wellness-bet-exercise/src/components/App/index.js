@@ -40,7 +40,6 @@ class App extends React.Component {
       <Router>
         <div>
         
-          <hr />
           <Route exact path={ROUTES.LANDING} component={LandingPage} />
           <Route path={ROUTES.HOME} component={Home} />
           <Route path={ROUTES.SIGN_UP} component={SignUpPage} />
