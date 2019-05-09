@@ -3,6 +3,7 @@ import axios from 'axios';
 import Navigation from '../Navigation';
 import fire from '../../config/fire';
 
+
 class Home extends React.Component {
   state= {
 
@@ -28,19 +29,7 @@ class Home extends React.Component {
  render(){
    return(
      <div>
-         <Navigation />
-       <button onClick={this.logout}>logout</button>
-       <h1>Home</h1>
-       <hr />
-       {this.state.users ?
-         this.state.users.map(user => {
-           return (
-             <>
-               <h3>{user.full_name}</h3>
-               <img src={user.profilePhoto} alt='user avatar'/>
-             </>
-         )}): <p>Loading users...</p>
-       }
+         <Navigation logout={this.logout}/>
      </div>
    )
  }

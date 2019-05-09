@@ -1,6 +1,6 @@
-export const LANDING = '/landing';
-export const SIGN_UP = '/signup';
-export const SIGN_IN = '/signin';
+export const SIGN_UP = '/signUp';
+export const SIGN_IN = '/signIn';
 export const HOME = '/home';
-export const ADMIN = '/admin';
-export const PASSWORD_FORGET = '/pw-forget';
+export const PASSWORD_FORGET = '/pwForget';
+export const GROUP_CREATE = '/groupCreate';
+export const GROUP_JOIN = '/groupJoin'
