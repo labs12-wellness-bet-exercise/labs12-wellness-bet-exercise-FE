@@ -12,8 +12,7 @@ const GroupList = props =>{
 
 export default GroupList;
 
- {/* <div className="group-list">
-        {props.groups.map(group =>(
-            <Group groupArray ={group} />
-        ))}
-        </div> */}
+//<div className="group-list">
+//  </div>   {props.groups.map(group =>(
+//     <Group groupArray ={group} />))}
+//   </div>
