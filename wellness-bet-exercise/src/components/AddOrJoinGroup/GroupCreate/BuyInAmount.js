@@ -28,6 +28,7 @@ class BuyInAmount extends React.Component {
         <p>Competition will run from {this.props.start_date} to {this.props.end_date}.</p>
         {this.state.buyInBool === false ?
           <div>
+            <label>Buy-in amount</label>
             <input
                 type="number" 
                 name="buy_in_amount"

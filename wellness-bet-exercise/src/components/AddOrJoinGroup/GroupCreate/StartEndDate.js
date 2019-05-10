@@ -29,12 +29,13 @@ class StartEndDate extends React.Component {
       <h2>{this.props.group_name}</h2>
       {this.state.datesAdded === false ?
         <div className='calendarContainer'>
-          
+          <label>Competition start date</label>
           <input
             onInput={this.handleChange}
             type='date'
             name='start_date'
             value={this.state.start_date}/>
+          <label>Competition end date</label>
           <input
             onInput={this.handleChange}
             type='date'

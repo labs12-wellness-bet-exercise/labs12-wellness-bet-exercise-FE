@@ -11,7 +11,7 @@ class GroupName extends React.Component {
     e.preventDefault()
     this.setState({
       ...this.state,
-      groupNameAdded: !this.stategroupNameAdded
+      groupNameAdded: !this.state.groupNameAdded
     })
   }
   
