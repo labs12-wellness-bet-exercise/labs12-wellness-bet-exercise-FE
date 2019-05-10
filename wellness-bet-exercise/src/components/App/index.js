@@ -4,6 +4,7 @@ import * as ROUTES from '../../constants/routes';
 import SignInPage from '../SignIn';
 import Home from '../Home'
 import fire from '../../config/fire.js';
+import './App.css'
 
 class App extends React.Component { 
   constructor(props) {
