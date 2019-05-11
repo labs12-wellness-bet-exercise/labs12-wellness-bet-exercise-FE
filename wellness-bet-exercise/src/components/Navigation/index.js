@@ -7,11 +7,11 @@ import GroupCreate from '../Groups/GroupCreate/GroupCreate';
 import GroupJoin from '../Groups/GroupJoin/GroupJoin';
 import Group from '../Groups/Group.js'
 
-const Navigation = (props) => (
+const Navigation = props => (
   <div>
-      <div className='horizontalNav'>
-        <button onClick={props.logout}>logout</button>
-      </div>
+    <div className="horizontalNav">
+      <button onClick={props.logout}>logout</button>
+    </div>
       <div className='navAndDash'>
         <div className='verticalNav'>
           <div className='myGroupsHeader'>
@@ -32,7 +32,7 @@ const Navigation = (props) => (
             component=  {GroupJoin} />
         </div>
       </div>
-  </div>
+    </div>
 );
 
 export default Navigation;
