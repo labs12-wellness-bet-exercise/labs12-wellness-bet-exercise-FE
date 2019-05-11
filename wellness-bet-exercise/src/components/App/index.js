@@ -1,9 +1,11 @@
 import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import * as ROUTES from "../../constants/routes";
-import SignInPage from "../SignIn";
-import Home from "../Home";
-import fire from "../../config/fire.js";
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import * as ROUTES from '../../constants/routes';
+import SignInPage from '../SignIn';
+import Home from '../Home'
+import fire from '../../config/fire.js';
+import './App.css'
+
 
 class App extends React.Component {
   constructor(props) {

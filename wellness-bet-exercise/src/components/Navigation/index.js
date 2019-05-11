@@ -18,9 +18,21 @@ const Navigation = props => (
         <Link to="/groupJoin">Join Group</Link>
         <GroupData />
       </div>
-      <div className="dashboard">
-        <Route path={ROUTES.GROUP_CREATE} component={GroupCreate} />
-        <Route path={ROUTES.GROUP_JOIN} component={GroupJoin} />
+      <div className='navAndDash'>
+        <div className='verticalNav'>
+          <div className='myGroupsHeader'>
+            <h3>My Groups</h3>
+            <GroupList />
+          </div>
+          
+            <Link to='/groupCreate'>Create Group</Link>
+            <Link to='/groupJoin'>Join Group</Link>
+          
+        </div>
+        <div className='dashboard'>
+          <Route path={ROUTES.GROUP_CREATE} component=  {GroupCreate} />
+          <Route path={ROUTES.GROUP_JOIN} component=  {GroupJoin} />
+        </div>
       </div>
     </div>
   </div>
