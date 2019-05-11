@@ -1,5 +1,5 @@
 import React from 'react';
-import BuyInAmount from './BuyInAmount.js.js'
+import BuyInAmount from './BuyInAmount.js'
 
 class StartEndDate extends React.Component {
   state = {
@@ -60,6 +60,7 @@ class StartEndDate extends React.Component {
          start_date={this.state.start_date}
          end_date={this.state.end_date}
          datesAddedToggle={this.datesAddedToggle}
+         routerProps={this.props.routerProps}
          />
       }
       </>

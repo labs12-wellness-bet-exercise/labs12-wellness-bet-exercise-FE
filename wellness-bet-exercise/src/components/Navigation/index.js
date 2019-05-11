@@ -24,9 +24,12 @@ const Navigation = (props) => (
           
         </div>
         <div className='dashboard'>
-          <Route path={ROUTES.GROUP_VIEW} component={Group}/>
-          <Route path={ROUTES.GROUP_CREATE} component=  {GroupCreate} />
-          <Route path={ROUTES.GROUP_JOIN} component=  {GroupJoin} />
+          <Route path={ROUTES.GROUP_VIEW}
+            render={(props) => (<Group {...props}/>)}/>
+          <Route path={ROUTES.GROUP_CREATE}
+            render={(props) => (<GroupCreate{...props}/>)}/>
+          <Route path={ROUTES.GROUP_JOIN} 
+            component=  {GroupJoin} />
         </div>
       </div>
   </div>

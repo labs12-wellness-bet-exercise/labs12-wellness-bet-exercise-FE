@@ -49,6 +49,7 @@ class GroupMessage extends React.Component {
               buy_in_amount={this.props.buy_in_amount}
               group_message={this.state.group_message}
               messageAddedToggle={this.messageAddedToggle}
+              routerProps={this.props.routerProps}
               />
         }
       </div>

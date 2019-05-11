@@ -6,7 +6,7 @@ class GroupCreate extends React.Component {
     return(
       <div className='groupFormContainer'>
         <h1>Create a New Group</h1>
-        <GroupName />
+        <GroupName routerProps={this.props}/>
       </div>
     )
   }

@@ -25,6 +25,8 @@ class GroupPhoto extends React.Component {
       .post('http://localhost:5000/api/groups', group)
       .then(res => {
          console.log(res)
+         let id = res.data.newGroup[0].group_id;
+         this.props.routerProps.history.push(`/api/groups/${id}`)
       })
       .catch(error => {
         console.log(error)
