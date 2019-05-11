@@ -18,6 +18,7 @@ const Navigation = props => (
         <Link to="/groupJoin">Join Group</Link>
         <GroupData />
       </div>
+
       <div className="dashboard">
         <Route path={ROUTES.GROUP_CREATE} component={GroupCreate} />
         <Route path={ROUTES.GROUP_JOIN} component={GroupJoin} />
