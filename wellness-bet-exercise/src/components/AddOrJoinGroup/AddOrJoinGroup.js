@@ -1,6 +1,6 @@
 import React from "react";
-import GroupCreate from './GroupCreate/GroupCreate';
-import GroupJoin from './GroupJoin'
+import GroupCreate from '../Groups/GroupCreate/GroupCreate';
+import GroupJoin from '../Groups/GroupJoin'
 
 const AddOrJoinGroup = () => (
   <div>

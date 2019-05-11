@@ -17,19 +17,14 @@ class GroupPhoto extends React.Component {
       end_date: this.props.end_date,
       group_message: this.props.group_message,
       group_photo: this.state.group_photo,
-      admin_id: 1
+      admin_id: 1,
+      join_code: (new Date()%9e6).toString(36)
     }
     console.log(group)
     axios
-      .post('https://wellness-bet.herokuapp.com/api/groups', group)
+      .post('http://localhost:5000/api/groups', group)
       .then(res => {
-        res
-          .status(200)
-          .json({
-            message: "Group successfully created",
-            res
-          })
-         
+         console.log(res)
       })
       .catch(error => {
         console.log(error)
@@ -49,7 +44,7 @@ class GroupPhoto extends React.Component {
     <div className='imageUploader'>
         <h3>Group Message</h3>
         <p>{this.props.group_message}</p>
-        <img src={this.state.group_image} alt='avatar' />
+        <img src={this.state.group_photo} alt='avatar' />
         <label>Image link for your group photo</label>   
         <input className='linkSpace'
           name='group_photo'
@@ -65,7 +60,7 @@ class GroupPhoto extends React.Component {
                 onClick={this.submitGroup}>
                 Submit
               </button>:
-              <p className='fadedNext'>Next</p>}
+              <button className='fadedNext'>Next</button>}
     </div>
 
     )

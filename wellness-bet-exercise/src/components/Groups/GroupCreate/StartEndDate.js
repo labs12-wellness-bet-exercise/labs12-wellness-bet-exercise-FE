@@ -1,5 +1,5 @@
 import React from 'react';
-import BuyInAmount from './BuyInAmount.js'
+import BuyInAmount from './BuyInAmount.js.js'
 
 class StartEndDate extends React.Component {
   state = {
@@ -31,13 +31,13 @@ class StartEndDate extends React.Component {
         <div className='calendarContainer'>
           <label>Competition start date</label>
           <input
-            onInput={this.handleChange}
+            onChange={this.handleChange}
             type='date'
             name='start_date'
             value={this.state.start_date}/>
           <label>Competition end date</label>
           <input
-            onInput={this.handleChange}
+            onChange={this.handleChange}
             type='date'
             name='end_date'
             value={this.state.end_date}/>
