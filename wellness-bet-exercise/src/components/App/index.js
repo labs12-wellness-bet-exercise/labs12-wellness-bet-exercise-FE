@@ -5,8 +5,7 @@ import SignInPage from "../SignIn";
 import Home from "../Home";
 import fire from "../../config/fire.js";
 import "./App.css";
-import CssBaseline from '@material-ui/core/CssBaseline';
-
+import CssBaseline from "@material-ui/core/CssBaseline";
 
 class App extends React.Component {
   constructor(props) {
@@ -23,6 +22,7 @@ class App extends React.Component {
   authListener = () => {
     fire.auth().onAuthStateChanged(user => {
       if (user) {
+        // maybe put the connection to the users table right here?
         this.setState({ user });
       } else {
         this.setState({
@@ -37,13 +37,9 @@ class App extends React.Component {
       <Router>
         <React.Fragment>
           <CssBaseline>
-            {
-              this.state.user ? 
-              <Home />:
-              <SignInPage />
-            }
-            <Route path=  {ROUTES.HOME}   component={Home} />
-            <Route path=  {ROUTES.SIGN_IN}   component=  {SignInPage} />
+            {this.state.user ? <Home /> : <SignInPage />}
+            <Route path={ROUTES.HOME} component={Home} />
+            <Route path={ROUTES.SIGN_IN} component={SignInPage} />
           </CssBaseline>
         </React.Fragment>
       </Router>

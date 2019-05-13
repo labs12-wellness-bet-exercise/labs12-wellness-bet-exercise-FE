@@ -20,8 +20,9 @@ class GroupJoin extends React.Component {
         }`
       )
       .then(res => {
+        console.log("checkJoinCode group_id", res.data[0].group_id);
         this.setState({
-          group_id: res.group_id
+          group_id: res.data[0].group_id
         });
       })
       .catch(error => {
@@ -33,6 +34,7 @@ class GroupJoin extends React.Component {
   };
 
   addUserToGroup = () => {
+    console.log("user_id", this.state.user_id, "groupid", this.state.group_id);
     axios
       .post("https://wellness-bet.herokuapp.com/api/participants/", {
         group_id: this.state.group_id,
@@ -49,11 +51,11 @@ class GroupJoin extends React.Component {
     this.setState({
       [e.target.name]: e.target.value
     });
-    this.checkJoinCode();
   };
 
   handleSubmit = e => {
     e.preventDefault();
+    this.checkJoinCode();
     this.addUserToGroup();
   };
 
