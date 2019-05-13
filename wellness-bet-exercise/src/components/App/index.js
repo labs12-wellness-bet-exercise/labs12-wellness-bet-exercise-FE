@@ -5,6 +5,8 @@ import SignInPage from "../SignIn";
 import Home from "../Home";
 import fire from "../../config/fire.js";
 import "./App.css";
+import CssBaseline from '@material-ui/core/CssBaseline';
+
 
 class App extends React.Component {
   constructor(props) {
@@ -33,11 +35,17 @@ class App extends React.Component {
   render() {
     return (
       <Router>
-        <div>
-          <div>{this.state.user ? <Home /> : <SignInPage />}</div>
-          <Route path={ROUTES.HOME} component={Home} />
-          <Route path={ROUTES.SIGN_IN} component={SignInPage} />
-        </div>
+        <React.Fragment>
+          <CssBaseline>
+            {
+              this.state.user ? 
+              <Home />:
+              <SignInPage />
+            }
+            <Route path=  {ROUTES.HOME}   component={Home} />
+            <Route path=  {ROUTES.SIGN_IN}   component=  {SignInPage} />
+          </CssBaseline>
+        </React.Fragment>
       </Router>
     );
   }

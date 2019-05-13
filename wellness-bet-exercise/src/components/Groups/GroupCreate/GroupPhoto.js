@@ -22,7 +22,7 @@ class GroupPhoto extends React.Component {
     }
     console.log(group)
     axios
-      .post('http://localhost:5000/api/groups', group)
+      .post('https://wellness-bet.herokuapp.com/api/groups', group)
       .then(res => {
          console.log(res)
          let id = res.data.newGroup[0].group_id;

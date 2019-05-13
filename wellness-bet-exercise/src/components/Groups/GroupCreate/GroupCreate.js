@@ -1,5 +1,6 @@
 import React from "react";
-import GroupName from './GroupName'
+import GroupName from './GroupName';
+import './GroupCreate.css'
 
 class GroupCreate extends React.Component {
   render(){

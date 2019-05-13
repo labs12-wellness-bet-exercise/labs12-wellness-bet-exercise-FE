@@ -36,5 +36,10 @@ div {
 }
 
 .dashboard {
-  margin-left: 200px
+  position: absolute;
+  left: 200px;
+  top: 80px;
+  right: 0;
+  bottom: 0;
+  background-image: url("https://www.runragnar.com/ragnar-trail-blog/wp-content/uploads/2014/10/halloween-trail-runner.jpg")
 }
