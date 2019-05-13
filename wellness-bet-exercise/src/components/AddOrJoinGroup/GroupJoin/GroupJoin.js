@@ -20,9 +20,8 @@ class GroupJoin extends React.Component {
         }`
       )
       .then(res => {
-        console.log(res.body.group_id);
         this.setState({
-          group_id: res.body.group_id
+          group_id: res.group_id
         });
       })
       .catch(error => {
