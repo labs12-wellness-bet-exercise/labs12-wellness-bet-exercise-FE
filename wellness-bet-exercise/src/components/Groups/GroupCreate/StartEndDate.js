@@ -31,13 +31,13 @@ class StartEndDate extends React.Component {
         <div className='calendarContainer'>
           <label>Competition start date</label>
           <input
-            onInput={this.handleChange}
+            onChange={this.handleChange}
             type='date'
             name='start_date'
             value={this.state.start_date}/>
           <label>Competition end date</label>
           <input
-            onInput={this.handleChange}
+            onChange={this.handleChange}
             type='date'
             name='end_date'
             value={this.state.end_date}/>
@@ -60,6 +60,7 @@ class StartEndDate extends React.Component {
          start_date={this.state.start_date}
          end_date={this.state.end_date}
          datesAddedToggle={this.datesAddedToggle}
+         routerProps={this.props.routerProps}
          />
       }
       </>

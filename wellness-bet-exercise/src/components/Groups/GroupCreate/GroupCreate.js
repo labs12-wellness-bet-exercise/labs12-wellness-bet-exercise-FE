@@ -1,12 +1,13 @@
 import React from "react";
-import GroupName from './GroupName'
+import GroupName from './GroupName';
+import './GroupCreate.css'
 
 class GroupCreate extends React.Component {
   render(){
     return(
       <div className='groupFormContainer'>
         <h1>Create a New Group</h1>
-        <GroupName />
+        <GroupName routerProps={this.props}/>
       </div>
     )
   }

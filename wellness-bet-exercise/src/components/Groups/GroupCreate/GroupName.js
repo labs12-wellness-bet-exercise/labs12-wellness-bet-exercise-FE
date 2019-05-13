@@ -38,7 +38,8 @@ class GroupName extends React.Component {
                 Next
               </button>: <p className='fadedNext'>Next</p> }
           </form>: 
-              <StartEndDate  
+              <StartEndDate 
+                routerProps={this.props.routerProps} 
                 group_name={this.state.group_name}
                 nameAddedToggle={this.nameAddedToggle} 
               />

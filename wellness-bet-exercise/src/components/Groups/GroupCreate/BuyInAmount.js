@@ -47,11 +47,12 @@ class BuyInAmount extends React.Component {
               <p className='fadedNext'>Next</p>}
            </div>:
          <GroupMessage 
-         group_name={this.props.group_name}
-         start_date={this.props.start_date}
-         end_date={this.props.end_date}
-         buy_in_amount={this.state.buy_in_amount}
-         buyInBoolToggle={this.buyInBoolToggle}
+           group_name={this.props.group_name}
+           start_date={this.props.start_date}
+           end_date={this.props.end_date}
+           buy_in_amount={this.state.buy_in_amount}
+           buyInBoolToggle={this.buyInBoolToggle}
+           routerProps={this.props.routerProps}
          />}
      </> 
     ) 

@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 const Group = props => {
   return (
@@ -35,4 +35,3 @@ const Group = props => {
 };
 
 export default Group;
-//it's me lyd
