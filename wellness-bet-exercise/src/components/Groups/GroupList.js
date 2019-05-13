@@ -11,7 +11,7 @@ class GroupList extends React.Component {
         })}
       </div>
     ) : (
-      <h2>go fuck yourself</h2>
+      <h2>loading...</h2>
     );
 
     // <div>testing</div>
