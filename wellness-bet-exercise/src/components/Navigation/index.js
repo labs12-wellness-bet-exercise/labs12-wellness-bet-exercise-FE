@@ -5,7 +5,8 @@ import GroupList from '../Groups/GroupList';
 import * as ROUTES from '../../constants/routes';
 import GroupCreate from '../Groups/GroupCreate/GroupCreate';
 import GroupJoin from '../Groups/GroupJoin/GroupJoin';
-import Group from '../Groups/Group.js'
+import Group from '../Groups/Group.js';
+import GroupData from '../Groups/GroupData'
 
 const Navigation = props => (
   <div>
@@ -16,7 +17,7 @@ const Navigation = props => (
         <div className='verticalNav'>
           <div className='myGroupsHeader'>
             <h3>My Groups</h3>
-            <GroupList />
+            <GroupData />
           </div>
           
             <Link to='/groupCreate'>Create Group</Link>
