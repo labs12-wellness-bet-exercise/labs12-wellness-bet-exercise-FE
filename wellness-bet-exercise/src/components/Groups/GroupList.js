@@ -1,13 +1,19 @@
 import React from "react";
+import { NavLink } from 'react-router-dom'
 
-import Group from "./Group";
+import GroupTitle from "./GroupTitle";
 
 class GroupList extends React.Component {
   render() {
     return this.props.groups ? (
       <div>
         {this.props.groups.map(group => {
-          return <Group groups={group} />;
+          console.log(group)
+          return (
+            <NavLink to={`/groups/${group.group_id}`}>
+              <GroupTitle group={group} />
+            </NavLink>
+          );
         })}
       </div>
     ) : (

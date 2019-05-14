@@ -1,11 +1,10 @@
 import React from 'react';
 import { Link, Route } from 'react-router-dom';
 import './navigation.css'
-import GroupList from '../Groups/GroupList';
 import * as ROUTES from '../../constants/routes';
 import GroupCreate from '../Groups/GroupCreate/GroupCreate';
 import GroupJoin from '../Groups/GroupJoin/GroupJoin';
-import Group from '../Groups/Group.js';
+import Group from '../Groups/Group';
 import GroupData from '../Groups/GroupData'
 
 const Navigation = props => (
@@ -30,7 +29,7 @@ const Navigation = props => (
           <Route path={ROUTES.GROUP_CREATE}
             render={(props) => (<GroupCreate{...props}/>)}/>
           <Route path={ROUTES.GROUP_JOIN} 
-            component=  {GroupJoin} />
+            render={(props) => (<GroupJoin{...props} />)}/>
         </div>
       </div>
     </div>
