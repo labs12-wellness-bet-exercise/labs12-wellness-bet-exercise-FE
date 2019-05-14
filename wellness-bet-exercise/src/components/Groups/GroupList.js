@@ -10,7 +10,7 @@ class GroupList extends React.Component {
         {this.props.groups.map(group => {
           console.log(group)
           return (
-            <NavLink to={`/groups/${group.group_id}`}>
+            <NavLink to={`/api/groups/${group.group_id}`}>
               <GroupTitle group={group} />
             </NavLink>
           );

@@ -1,13 +1,14 @@
 import React from 'react';
 import axios from 'axios';
+import Payment from '../Payment/paymentProof.js'
 
 class Group extends React.Component {
   state={}
 
   componentDidMount(){
     axios
-    .get(`https://wellness-bet.herokuapp.com/api${this.props.location.pathname}`)
-      // .get(`http://localhost:5000/api${this.props.location.pathname}`)
+    .get(`https://wellness-bet.herokuapp.com${this.props.location.pathname}`)
+      // .get(`http://localhost:5000${this.props.location.pathname}`)
       .then(res => {
         console.log("Group View", res.data);
         this.setState({ group: res.data });
@@ -46,6 +47,7 @@ class Group extends React.Component {
                 <strong>Pot Total: </strong>
                 {props.groupArray.pot_total}
               </h3> */}
+              <Payment />
         </div>
       </div>
     );

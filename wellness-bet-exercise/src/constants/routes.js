@@ -1,7 +1,7 @@
-export const SIGN_UP = '/signUp';
-export const SIGN_IN = '/signIn';
-export const HOME = '/home';
-export const PASSWORD_FORGET = '/pwForget';
-export const GROUP_CREATE = '/groupCreate';
-export const GROUP_JOIN = '/groupJoin';
-export const GROUP_VIEW= '/groups/:id'
+export const SIGN_UP = '/api/signUp';
+export const SIGN_IN = '/api/signIn';
+export const HOME = '/api/home';
+export const PASSWORD_FORGET = '/api/pwForget';
+export const GROUP_CREATE = '/api/groupCreate';
+export const GROUP_JOIN = '/api/groupJoin';
+export const GROUP_VIEW= '/api/groups/:id'
