@@ -1,14 +1,13 @@
 import React from 'react';
 import axios from 'axios';
 import Payment from '../Payment/paymentProof.js'
-
+import { URL } from '../../constants/routes'
 class Group extends React.Component {
   state={}
 
   componentDidMount(){
     axios
-    .get(`https://wellness-bet.herokuapp.com${this.props.location.pathname}`)
-      // .get(`http://localhost:5000${this.props.location.pathname}`)
+      .get(`${URL}${this.props.location.pathname}`)
       .then(res => {
         console.log("Group View", res.data);
         this.setState({ group: res.data });
