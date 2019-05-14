@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import Payment from '../Payment/paymentProof.js'
 
 class Group extends React.Component {
   state={}
@@ -46,6 +47,7 @@ class Group extends React.Component {
                 <strong>Pot Total: </strong>
                 {props.groupArray.pot_total}
               </h3> */}
+              <Payment />
         </div>
       </div>
     );
