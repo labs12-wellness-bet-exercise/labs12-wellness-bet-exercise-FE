@@ -1,5 +1,7 @@
 import React from "React";
 import TimeLeft from "./timeleft";
+import MyStats from "./myStats";
+import StatGraph from "./statGraph";
 
 const StatsContainer = () => {
   return (
