@@ -6,8 +6,8 @@ class Group extends React.Component {
 
   componentDidMount(){
     axios
-    .get(`https://wellness-bet.herokuapp.com/api${this.props.location.pathname}`)
-      // .get(`http://localhost:5000/api${this.props.location.pathname}`)
+    .get(`https://wellness-bet.herokuapp.com${this.props.location.pathname}`)
+      // .get(`http://localhost:5000${this.props.location.pathname}`)
       .then(res => {
         console.log("Group View", res.data);
         this.setState({ group: res.data });

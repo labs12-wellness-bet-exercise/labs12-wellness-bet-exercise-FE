@@ -19,8 +19,8 @@ const Navigation = props => (
             <GroupData />
           </div>
           
-            <Link to='/groupCreate'>Create Group</Link>
-            <Link to='/groupJoin'>Join Group</Link>
+            <Link to='/api/groupCreate'>Create Group</Link>
+            <Link to='/api/groupJoin'>Join Group</Link>
           
         </div>
         <div className='dashboard'>
