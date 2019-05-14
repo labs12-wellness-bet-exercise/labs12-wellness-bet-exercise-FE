@@ -2,7 +2,7 @@ import React from "react";
 import axios from 'axios'; 
 import Navigation from '../Navigation';
 import fire from '../../config/fire';
-
+import * as ROUTES from "../../constants/routes";
 
 class Home extends React.Component {
   state= {
@@ -10,9 +10,9 @@ class Home extends React.Component {
   }
 
   componentDidMount() {
+    localStorage.setItem('user_id', this.props.user_id)
     axios
-      .get('https://wellness-bet.herokuapp.com/api/users/')
-      // .get('https://localhost:5000/api/users/')
+      .get(`${ROUTES.URL}/api/users/`)
       .then(res => {
         this.setState({
           users: res.data
@@ -30,7 +30,10 @@ class Home extends React.Component {
  render(){
    return(
      <div>
-         <Navigation logout={this.logout}/>
+         <Navigation 
+           user={this.props.user}
+           user_id={this.props.user_id}
+           logout={this.logout}/>
      </div>
    )
  }
