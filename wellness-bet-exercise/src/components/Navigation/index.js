@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link, Route } from 'react-router-dom';
 import './navigation.css'
-import GroupList from '../Groups/GroupList';
 import * as ROUTES from '../../constants/routes';
 import GroupCreate from '../Groups/GroupCreate/GroupCreate';
 import GroupJoin from '../Groups/GroupJoin/GroupJoin';
