@@ -1,11 +1,15 @@
-import React from "react";
-import { Link, Route } from "react-router-dom";
-import "./navigation.css";
-import * as ROUTES from "../../constants/routes";
-import GroupCreate from "../Groups/GroupCreate/GroupCreate";
-import GroupJoin from "../Groups/GroupJoin/GroupJoin";
-import Group from "../Groups/Group";
-import GroupData from "../Groups/GroupData";
+
+import React from 'react';
+import { Link, Route } from 'react-router-dom';
+import './navigation.css'
+import * as ROUTES from '../../constants/routes';
+import GroupCreate from '../Groups/GroupCreate/GroupCreate';
+import GroupJoin from '../Groups/GroupJoin/GroupJoin';
+import Group from '../Groups/Group';
+import GroupData from '../Groups/GroupData'
+import Payment from '../Payment/paymentProof.js'
+
+
 
 const Navigation = props => {
   return (
@@ -24,6 +28,7 @@ const Navigation = props => {
           <Link to="/api/groupCreate">Create Group</Link>
           <Link to="/api/groupJoin">Join Group</Link>
         </div>
+
         <div className="dashboard">
           <Route
             path={ROUTES.GROUP_VIEW}
@@ -39,6 +44,7 @@ const Navigation = props => {
               return <GroupJoin {...props} user_id={props.user_id} />;
             }}
           />
+
         </div>
         <Link to="/groupCreate">Create Group</Link>
         <Link to="/groupJoin">Join Group</Link>

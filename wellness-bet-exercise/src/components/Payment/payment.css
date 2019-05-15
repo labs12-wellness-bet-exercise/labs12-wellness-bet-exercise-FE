@@ -1,0 +1,24 @@
+.payment-drag-n-drop{
+    border: 2px dashed red;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.payment-drag-n-drop:hover{
+    background-color:#2B8BC9;
+    opacity: 0.4;
+    cursor: pointer;
+    
+}
+
+.payment-drag-n-drop, p{
+    font-size: 30px;
+    color: red;
+}
+
+.payment-drag-n-drop, p:hover{
+    color: white;
+}
