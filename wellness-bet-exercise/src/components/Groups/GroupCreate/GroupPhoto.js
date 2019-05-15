@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-
+import * as ROUTES from '../../../constants/routes.js'
 
 class GroupPhoto extends React.Component {
   state = {
@@ -21,8 +21,7 @@ class GroupPhoto extends React.Component {
     }
     console.log(group)
     axios
-      .post('https://wellness-bet.herokuapp.com/api/groups', group)
-      // .post('http://localhost:5000/api/groups', group)
+      .post(`${ROUTES.URL}/api/groups`, group)
       .then(res => {
          console.log(res)
          let id = res.data.groupId.id;

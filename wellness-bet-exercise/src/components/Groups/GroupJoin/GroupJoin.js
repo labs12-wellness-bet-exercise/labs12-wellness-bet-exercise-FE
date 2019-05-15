@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import { URL } from '../../../constants/routes.js'
 
 class GroupJoin extends React.Component {
   constructor(props) {
@@ -8,14 +9,14 @@ class GroupJoin extends React.Component {
       join_code: "",
       error: "",
       group_id: "",
-      user_id: 1
+      user_id: null
     };
   }
 
   checkJoinCode = () => {
     axios
       .get(
-        `https://wellness-bet.herokuapp.com/api/joincodes/${
+        `${URL}/api/joincodes/${
           this.state.join_code
         }`
       )
@@ -34,11 +35,11 @@ class GroupJoin extends React.Component {
   };
 
   addUserToGroup = () => {
-    console.log("user_id", this.state.user_id, "groupid", this.state.group_id);
+    console.log("user_id", this.props.user_id, "groupid", this.state.group_id);
     axios
-      .post("https://wellness-bet.herokuapp.com/api/participants/", {
+      .post(`${URL}/api/participants/`, {
         group_id: this.state.group_id,
-        user_id: this.state.user_id
+        user_id: localStorage.getItem('user_id')
       })
       .then(res => {
         console.log(res);
