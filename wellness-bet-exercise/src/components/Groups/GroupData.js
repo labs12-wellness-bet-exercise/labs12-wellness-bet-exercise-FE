@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { URL } from '../../constants/routes'
+import { URL } from "../../constants/routes";
 import GroupList from "./GroupList";
 
 class GroupData extends React.Component {
@@ -9,7 +9,8 @@ class GroupData extends React.Component {
   componentDidMount() {
     console.log("componentdidmount", this.state);
     axios
-      .get(`${URL}/api/usergroups/${this.props.user_id}`)
+      .get(`${URL}/api/usergroups/${140}`)
+      //.get(`${URL}/api/usergroups/1`)
       .then(res => {
         console.log("response data", res.data);
         this.setState({ groups: res.data });
@@ -28,6 +29,7 @@ class GroupData extends React.Component {
 
   render() {
     console.log("groupData", this.state.groups);
+    console.log("groupData props", this.props);
     return <GroupList groups={this.state.groups} />;
   }
 }

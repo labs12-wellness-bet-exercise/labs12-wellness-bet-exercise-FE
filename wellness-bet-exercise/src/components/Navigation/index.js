@@ -40,31 +40,16 @@ const Navigation = props => {
           />
           <Route
             path={ROUTES.GROUP_JOIN}
-            render={props => {
-              return <GroupJoin {...props} user_id={props.user_id} />;
+            render={routeProps => {
+              return <GroupJoin {...props} {...routeProps} />;
             }}
           />
 
         </div>
-        <Link to="/groupCreate">Create Group</Link>
-        <Link to="/groupJoin">Join Group</Link>
-      </div>
-      <div className="dashboard">
-        <Route
-          path={ROUTES.GROUP_VIEW}
-          render={props => <Group {...props} />}
-        />
-        <Route
-          path={ROUTES.GROUP_CREATE}
-          render={props => <GroupCreate {...props} />}
-        />
-        <Route
-          path={ROUTES.GROUP_JOIN}
-          render={props => <GroupJoin {...props} />}
-        />
       </div>
     </div>
   );
 };
 
 export default Navigation;
+//hey, its me lyd

@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { URL } from '../../../constants/routes.js'
+import { URL } from "../../../constants/routes.js";
 
 class GroupJoin extends React.Component {
   constructor(props) {
@@ -9,21 +9,18 @@ class GroupJoin extends React.Component {
       join_code: "",
       error: "",
       group_id: "",
-      user_id: null
+      user_id: ""
     };
   }
 
   checkJoinCode = () => {
     axios
-      .get(
-        `${URL}/api/joincodes/${
-          this.state.join_code
-        }`
-      )
+      .get(`${URL}/api/joincodes/${this.state.join_code}`)
       .then(res => {
         console.log("checkJoinCode group_id", res.data[0].group_id);
         this.setState({
-          group_id: res.data[0].group_id
+          group_id: res.data[0].group_id,
+          user_id: this.props.user_id
         });
       })
       .catch(error => {
@@ -35,14 +32,13 @@ class GroupJoin extends React.Component {
   };
 
   addUserToGroup = () => {
-    console.log("user_id", this.props.user_id, "groupid", this.state.group_id);
     axios
       .post(`${URL}/api/participants/`, {
         group_id: this.state.group_id,
-        user_id: localStorage.getItem('user_id')
+        user_id: this.state.user_id
       })
       .then(res => {
-        console.log(res);
+        console.log("group join add user to group", res);
       })
       .catch(error => console.log(error));
   };
@@ -61,6 +57,7 @@ class GroupJoin extends React.Component {
   };
 
   render() {
+    console.log("state groupjoin", this.state);
     return (
       <div>
         <h1>Enter code to join a group</h1>
