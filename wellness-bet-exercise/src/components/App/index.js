@@ -5,7 +5,6 @@ import SignInPage from "../SignIn";
 import Home from "../Home";
 import fire from "../../config/fire.js";
 import "./App.css";
-import CssBaseline from "@material-ui/core/CssBaseline";
 import Axios from "axios";
 
 class App extends React.Component {
@@ -28,8 +27,8 @@ class App extends React.Component {
       email: fire.auth().currentUser.email, // pull off google object
       profilePhoto: fire.auth().currentUser.photoURL // pull off google object
     };
-    console.log("googleData", googleData);
-    Axios.post("https://wellness-bet.herokuapp.com/api/users/", googleData)
+      console.log("googleData", googleData);
+     Axios.post(`${ROUTES.URL}/api/users/`, googleData)
       .then(res => console.log(res, "addtoSQLDB res"))
       .catch(error =>
         console.log(
@@ -41,7 +40,7 @@ class App extends React.Component {
 
   setUserId = () => {
     const googleId = fire.auth().currentUser.uid;
-    Axios.get(`https://wellness-bet.herokuapp.com/api/users/userId/${googleId}`)
+    Axios.get(`${ROUTES.URL}/api/users/userId/${googleId}`)
       .then(res => this.setState({ user_id: res.data[0].user_id }))
       .catch(error => console.log(error, "getUserId error"));
   };
@@ -67,11 +66,17 @@ class App extends React.Component {
     return (
       <Router>
         <React.Fragment>
-          <CssBaseline>
-            {this.state.user ? <Home /> : <SignInPage />}
-            <Route path={ROUTES.HOME} component={Home} />
+            {this.state.user ? 
+              <Home 
+                user={this.state.user}
+                user_id={this.state.user_id}/>
+                : <SignInPage />}
+            {/* <Route path={ROUTES.HOME}
+              render={(props) => (
+                <Home {...props}
+                  user={this.state.user}
+                  user_id={this.state.user_id}/>)}/> */}
             <Route path={ROUTES.SIGN_IN} component={SignInPage} />
-          </CssBaseline>
         </React.Fragment>
       </Router>
     );
