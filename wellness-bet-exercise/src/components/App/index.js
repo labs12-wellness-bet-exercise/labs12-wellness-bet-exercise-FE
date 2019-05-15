@@ -30,7 +30,12 @@ class App extends React.Component {
       console.log("googleData", googleData);
      Axios.post(`${ROUTES.URL}/api/users/`, googleData)
       .then(res => console.log(res, "addtoSQLDB res"))
-      .catch(error => console.log(error, "addtoSQLDB error"));
+      .catch(error =>
+        console.log(
+          error,
+          "Don't worry -- this post request did not go through because the user is already in the database"
+        )
+      );
   };
 
   setUserId = () => {
