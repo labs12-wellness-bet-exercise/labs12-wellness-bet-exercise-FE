@@ -6,6 +6,7 @@ import GroupCreate from '../Groups/GroupCreate/GroupCreate';
 import GroupJoin from '../Groups/GroupJoin/GroupJoin';
 import Group from '../Groups/Group';
 import GroupData from '../Groups/GroupData'
+import Payment from '../Payment/paymentProof.js'
 
 const Navigation = props => (
   
@@ -37,7 +38,7 @@ const Navigation = props => (
                 user_id={props.user_id} 
               />}}/>
             
-              
+           <Payment />   
         </div>
       </div>
     </div>
