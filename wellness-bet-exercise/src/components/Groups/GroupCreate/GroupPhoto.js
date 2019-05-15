@@ -5,7 +5,8 @@ import * as ROUTES from "../../../constants/routes.js";
 class GroupPhoto extends React.Component {
   state = {
     group_photo:
-      "https://kurbo.com/wp-content/uploads/2017/01/pilates-exercise.jpg"
+      "https://kurbo.com/wp-content/uploads/2017/01/pilates-exercise.jpg",
+    group_id: null
   };
 
   submitGroup = e => {
@@ -31,6 +32,12 @@ class GroupPhoto extends React.Component {
       .catch(error => {
         console.log("Error creating that group...", error);
       });
+  };
+
+  joinGroup = () => {
+    axios
+      .post(`${ROUTES.URL}/api/participants/`, { user_id: "", group_id: "" })
+      .then(res => {});
   };
 
   handleChange = e => {
