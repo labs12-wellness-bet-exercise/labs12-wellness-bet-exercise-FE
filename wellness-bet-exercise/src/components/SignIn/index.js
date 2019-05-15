@@ -1,35 +1,29 @@
 import React from "react";
-import fire from '../../config/fire';
-import firebase from 'firebase';
-import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth'; 
+import fire from "../../config/fire";
+import firebase from "firebase";
+import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 
-const firebaseuiConfig = { 
-  signInFlow: 'popup', 
-  signInOptions: [
-    firebase.auth.GoogleAuthProvider.PROVIDER_ID
-  ]
-} 
+const firebaseuiConfig = {
+  signInFlow: "popup",
+  signInOptions: [firebase.auth.GoogleAuthProvider.PROVIDER_ID]
+};
 
 class SignIn extends React.Component {
   constructor(props) {
-    super(props); 
-    this.state = {
-    }
-  } 
+    super(props);
+    this.state = {};
+  }
 
   render() {
     return (
       <div>
         <h1>Welcome to Wellness Bet Fitness!</h1>
-        <StyledFirebaseAuth 
-        uiConfig={firebaseuiConfig} 
-        firebaseAuth={fire.auth()}
+        <StyledFirebaseAuth
+          uiConfig={firebaseuiConfig}
+          firebaseAuth={fire.auth()}
         />
       </div>
-    )
+    );
   }
-
-
-
 }
 export default SignIn;
