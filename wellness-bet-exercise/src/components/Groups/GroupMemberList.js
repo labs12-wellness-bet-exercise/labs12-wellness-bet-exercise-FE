@@ -1,14 +1,16 @@
 import React from "react";
 import GroupMember from "./GroupMember";
 
-const GroupMemberList = props => {
-  return (
-    <div>
-      {props.map(member => (
-        <GroupMember member={member} />
-      ))}
-    </div>
-  );
-};
+class GroupMemberList extends React.Component {
+  state = {};
+
+  render() {
+    return (
+      <div>
+        <GroupMember />
+      </div>
+    );
+  }
+}
 
 export default GroupMemberList;
