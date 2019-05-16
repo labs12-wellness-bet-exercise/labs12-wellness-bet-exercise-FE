@@ -12,7 +12,7 @@ import Payment from "../Payment/paymentProof.js";
 const Navigation = props => {
   return (
     <div>
-      {console.log(props)}
+      {console.log("navigation props", props)}
       <div className="horizontalNav">
         <button onClick={props.logout}>logout</button>
       </div>

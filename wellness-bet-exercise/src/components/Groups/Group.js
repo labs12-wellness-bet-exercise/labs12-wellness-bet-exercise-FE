@@ -50,7 +50,12 @@ class Group extends React.Component {
                 <strong>Pot Total: </strong>
                 {props.groupArray.pot_total}
               </h3> */}
-          <MemberList testingGroup={this.state.group} />
+
+          {this.state.group ? (
+            <MemberList group={this.state.group} />
+          ) : (
+            <p>loading</p>
+          )}
           <Payment />
         </div>
       </div>

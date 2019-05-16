@@ -16,8 +16,8 @@ class MemberList extends React.Component {
   }
 
   render() {
-    console.log("MEMBER LIST PROPS", this.props.testingGroup[0].group_id);
-    // console.log("GROUP ID", this.props.group[0].group.group_id);
+    console.log("MEMBER LIST PROPS", this.props.group.group_id);
+    // console.log("GROUP ID", this.props.group.group.group_id);
     return (
       <div>
         <GroupMember />
