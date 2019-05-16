@@ -7,7 +7,7 @@ import GroupCreate from '../Groups/GroupCreate/GroupCreate';
 import GroupJoin from '../Groups/GroupJoin/GroupJoin';
 import Group from '../Groups/Group';
 import GroupData from '../Groups/GroupData'
-
+import StatsContainer from '../Stats/statsContainer'
 
 
 const Navigation = props => {
@@ -26,6 +26,7 @@ const Navigation = props => {
 
           <Link to="/api/groupCreate">Create Group</Link>
           <Link to="/api/groupJoin">Join Group</Link>
+          <Link to="/api/statsContainer">Stats</Link>
         </div>
 
         <div className="dashboard">
@@ -37,7 +38,7 @@ const Navigation = props => {
           />
           <Route
             path={ROUTES.GROUP_CREATE}
-            render={routeProps => <GroupCreate {...routeProps}{...props} />}
+            render={routeProps => <GroupCreate {...routeProps} {...props} />}
           />
           <Route
             path={ROUTES.GROUP_JOIN}
@@ -45,7 +46,12 @@ const Navigation = props => {
               return <GroupJoin {...props} {...routeProps} />;
             }}
           />
-
+          <Route
+            path={"/api/statsContainer"}
+            render={routeProps => {
+              return <StatsContainer {...props} {...routeProps} />;
+            }}
+          />
         </div>
       </div>
     </div>
