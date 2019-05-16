@@ -33,7 +33,7 @@ class Payment extends React.Component {
 
       // Make an AJAX upload request using Axios (replace Cloudinary URL below with your own)
       return axios
-        .post("https://api.cloudinary.com/v1_1/wellness-bet", formData, {
+        .post("https://api.cloudinary.com/v1_1/wellness-bet/image/upload", formData, {
           headers: { "X-Requested-With": "XMLHttpRequest" }
         })
         .then(response => {
@@ -46,7 +46,7 @@ class Payment extends React.Component {
     // Once all the files are uploaded
     axios.all(uploaders).then(() => {
       // ... perform after upload is successful operation
-      return <h1>Your Upload Was Successful!</h1>
+      console.log('Your Upload Was Successful!')
     });
   };
 }

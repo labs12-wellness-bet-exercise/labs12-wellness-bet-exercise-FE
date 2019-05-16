@@ -32,11 +32,13 @@ const Navigation = props => {
         <div className="dashboard">
           <Route
             path={ROUTES.GROUP_VIEW}
-            render={props => <Group {...props} />}
+            render={routeProps => {
+              return <Group {...routeProps} {...props} />;
+            }}
           />
           <Route
             path={ROUTES.GROUP_CREATE}
-            render={props => <GroupCreate {...props} />}
+            render={routeProps => <GroupCreate {...routeProps}{...props} />}
           />
           <Route
             path={ROUTES.GROUP_JOIN}
