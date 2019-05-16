@@ -20,7 +20,7 @@ class Group extends React.Component {
   }
 
   render() {
-    console.log(this.props, "group view props");
+    console.log(this.state, "group view props");
     return (
       <div>
         <div className="one-group">
@@ -50,12 +50,12 @@ class Group extends React.Component {
                 <strong>Pot Total: </strong>
                 {props.groupArray.pot_total}
               </h3> */}
-
           {this.state.group ? (
             <MemberList group={this.state.group} />
           ) : (
-            <p>loading</p>
+            <p>Loading...</p>
           )}
+
           <Payment />
         </div>
       </div>
