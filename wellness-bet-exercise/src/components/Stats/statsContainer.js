@@ -1,22 +1,27 @@
 import React from "react";
 import TimeLeft from "./timeleft";
-//import MyStats from "./myStats";
+import MyStats from "./myStats";
 import StatGraph from "./statGraph";
+import Leaderboard from "./Leaderboard";
+import "./stats.css";
 
 const StatsContainer = () => {
   return (
-    <div>
-      <h2>Stats Container</h2>
-      <div>
-        <h1>GROUP NAME GOES HERE</h1>
-        <p>Competition ends: END DATE HERE </p>
-
-        <h1>Total Pot: $ INSERT TOTAL POT AMOUNT HERE</h1>
+    <div className="stats-container">
+      <div className="stats-title">
+        <div className="flex-title-info">
+          <h4>GROUP NAME GOES HERE</h4>
+          <h6>Competition ends: END DATE HERE </h6>
+        </div>
+        <div>
+          <h5>Total Pot: $ Pot Amount here</h5>
+        </div>
       </div>
-      <div>
-        <div className="leaderboard"> Hi I'm the leaderboard.</div>
-        <TimeLeft />
-        {/* <MyStats /> */}
+
+      <div className="flex-stat-items">
+        <Leaderboard className="stat-item" />
+        <TimeLeft className="stat-item" />
+        <MyStats className="stat-item" />
       </div>
       <StatGraph />
     </div>

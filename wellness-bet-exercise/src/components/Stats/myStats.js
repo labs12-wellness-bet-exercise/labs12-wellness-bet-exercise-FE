@@ -12,15 +12,6 @@ class MyStats extends React.Component {
         </>
         {/** design file has this in "workouts", but we are using weight and steps */}
         <h2>Today</h2>
-        <p>
-          This will have either the steps or weight or heartrate(?) depending on
-          what kind of competition it is
-        </p>
-        <h2>Total</h2>
-        <p>
-          This will have either the steps or weight or heartrate(?) depending on
-          what kind of competition it is
-        </p>
       </div>
     );
   }

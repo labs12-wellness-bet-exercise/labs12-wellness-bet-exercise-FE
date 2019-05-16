@@ -4,7 +4,7 @@ import { Doughnut } from "react-chartjs-2";
 class TimeLeft extends React.Component {
   state = {
     chartData: {
-      labels: ["Time Remaining", "Time Spent"],
+      labels: ["Days Remaining", "Days Spent"],
       datasets: [
         {
           label: "Steps",
@@ -17,7 +17,7 @@ class TimeLeft extends React.Component {
 
   render() {
     return (
-      <div className="chart">
+      <div className="timeleft-container">
         <Doughnut
           data={this.state.chartData}
           options={{
