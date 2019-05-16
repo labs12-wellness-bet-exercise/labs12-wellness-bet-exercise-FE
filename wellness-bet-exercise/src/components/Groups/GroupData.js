@@ -9,7 +9,7 @@ class GroupData extends React.Component {
   componentDidMount() {
     console.log("componentdidmount", this.state);
     axios
-      .get(`${URL}/api/usergroups/${140}`)
+      .get(`${URL}/api/usergroups/${this.props.user_id}`)
       //.get(`${URL}/api/usergroups/1`)
       .then(res => {
         console.log("response data", res.data);

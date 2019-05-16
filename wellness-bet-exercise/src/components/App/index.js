@@ -72,11 +72,8 @@ class App extends React.Component {
                 user_id={this.state.user_id}/>
                 : <SignInPage />}
             {/* <Route path={ROUTES.HOME}
-              render={(props) => (
-                <Home {...props}
-                  user={this.state.user}
-                  user_id={this.state.user_id}/>)}/> */}
-            <Route path={ROUTES.SIGN_IN} component={SignInPage} />
+              render={(props) => (<Home {...props} state={this.state}/>)}/>
+            <Route path={ROUTES.SIGN_IN} component={SignInPage} /> */}
         </React.Fragment>
       </Router>
     );
