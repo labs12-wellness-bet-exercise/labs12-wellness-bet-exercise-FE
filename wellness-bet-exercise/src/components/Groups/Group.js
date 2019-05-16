@@ -1,13 +1,14 @@
-import React from 'react';
-import axios from 'axios';
-import Payment from '../Payment/paymentProof.js'
+import React from "react";
+import axios from "axios";
+import GroupMemberList from "./GroupMemberList.js";
+import Payment from "../Payment/paymentProof.js";
 
 class Group extends React.Component {
-  state={}
+  state = {};
 
-  componentDidMount(){
+  componentDidMount() {
     axios
-    .get(`https://wellness-bet.herokuapp.com${this.props.location.pathname}`)
+      .get(`https://wellness-bet.herokuapp.com${this.props.location.pathname}`)
       // .get(`http://localhost:5000${this.props.location.pathname}`)
       .then(res => {
         console.log("Group View", res.data);
@@ -17,7 +18,7 @@ class Group extends React.Component {
         console.log(err);
       });
   }
-  render(){
+  render() {
     return (
       <div>
         <div className="one-group">
@@ -47,12 +48,12 @@ class Group extends React.Component {
                 <strong>Pot Total: </strong>
                 {props.groupArray.pot_total}
               </h3> */}
-              <Payment />
+          <GroupMemberList />
+          <Payment />
         </div>
       </div>
     );
   }
-  
-};
+}
 
 export default Group;
