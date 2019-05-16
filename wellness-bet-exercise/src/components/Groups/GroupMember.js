@@ -2,9 +2,11 @@ import React from "react";
 
 class GroupMember extends React.Component {
   render() {
-    <div>
-      <p>Hi I'm a group member.</p>
-    </div>;
+    return (
+      <div>
+        <h4>Hi I'm a group member.</h4>
+      </div>
+    );
   }
 }
 
