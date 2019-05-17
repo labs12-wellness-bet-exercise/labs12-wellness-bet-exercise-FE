@@ -25,19 +25,32 @@ class GroupPhoto extends React.Component {
     axios
       .post(`${ROUTES.URL}/api/groups`, group)
       .then(res => {
-        console.log(res);
         let id = res.data.groupId.id;
-        this.props.routerProps.history.push(`/api/groups/${id}`);
+        console.log(res)
+        .then(
+          this.joinGroup(this.props.routerProps.user_id, id)
+          )
+        .catch(
+          console.log('error joining created group')
+        )
       })
+      
       .catch(error => {
         console.log("Error creating that group...", error);
       });
-  };
-
-  joinGroup = () => {
-    axios
-      .post(`${ROUTES.URL}/api/participants/`, { user_id: "", group_id: "" })
-      .then(res => {});
+    };
+    // this.props.routerProps.history.push(`/api/groups/${id}`);
+    
+    joinGroup = (user_id, group_id) => {
+      axios
+      .post(`${ROUTES.URL}/api/participants/`, { user_id: user_id, group_id: group_id })
+      .then(res => {
+        res.status(201)
+           .json({
+             res,
+             message: "group created and joined successfully"
+           })
+      });
   };
 
   handleChange = e => {

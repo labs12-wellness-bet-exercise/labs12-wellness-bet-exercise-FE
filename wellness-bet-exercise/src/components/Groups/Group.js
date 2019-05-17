@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import MemberList from "./MemberList.js";
 import Payment from "../Payment/paymentProof.js";
 
 class Group extends React.Component {
@@ -17,14 +18,33 @@ class Group extends React.Component {
         console.log(err);
       });
   }
+
   render() {
-    console.log("render groupview", this.state.group);
+    console.log(this.state, "group view props");
     return (
       <div>
         <div className="one-group">
-          <h3>Group View</h3>
-          <h6>{this.state.buy_in_amount}</h6>
-          <Payment />
+          {this.state.group ? (
+            <div>
+              <img src={this.state.group[0].group_photo} alt="group photo" />
+              <h3>{this.state.group[0].group_name} </h3>
+              <h5>
+                Competition Dates: {this.state.group[0].start_date} -{" "}
+                {this.state.group[0].end_date}
+              </h5>
+              <h5>Buy-in Amount: ${this.state.group[0].buy_in_amount}</h5>
+              <h5>Current Pot Total: </h5>{" "}
+              {/** need to make the calculation based on whose approved */}
+              <h5>Message From Admin: {this.state.group[0].group_message}</h5>
+              <MemberList
+                group={this.state.group}
+                pathname={this.props.location.pathname}
+              />
+              <Payment />
+            </div>
+          ) : (
+            <p>Loading...</p>
+          )}
         </div>
       </div>
     );
