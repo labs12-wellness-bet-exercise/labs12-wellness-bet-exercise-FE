@@ -27,8 +27,8 @@ class App extends React.Component {
       email: fire.auth().currentUser.email, // pull off google object
       profilePhoto: fire.auth().currentUser.photoURL // pull off google object
     };
-      console.log("googleData", googleData);
-     Axios.post(`${ROUTES.URL}/api/users/`, googleData)
+    console.log("googleData", googleData);
+    Axios.post(`${ROUTES.URL}/api/users/`, googleData)
       .then(res => console.log(res, "addtoSQLDB res"))
       .catch(error =>
         console.log(
@@ -63,15 +63,16 @@ class App extends React.Component {
 
   render() {
     console.log("user", this.state.user);
+    console.log("app props", this.props);
     return (
       <Router>
         <React.Fragment>
-            {this.state.user ? 
-              <Home 
-                user={this.state.user}
-                user_id={this.state.user_id}/>
-                : <SignInPage />}
-            {/* <Route path={ROUTES.HOME}
+          {this.state.user ? (
+            <Home user={this.state.user} user_id={this.state.user_id} />
+          ) : (
+            <SignInPage />
+          )}
+          {/* <Route path={ROUTES.HOME}
               render={(props) => (<Home {...props} state={this.state}/>)}/>
             <Route path={ROUTES.SIGN_IN} component={SignInPage} /> */}
         </React.Fragment>

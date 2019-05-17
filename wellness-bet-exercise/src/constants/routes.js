@@ -7,4 +7,5 @@ export const PASSWORD_FORGET = "/api/pwForget";
 export const GROUP_CREATE = "/api/groupCreate";
 export const GROUP_JOIN = "/api/groupJoin";
 export const GROUP_VIEW = "/api/groups/:id";
+export const STEPS = "/api/steps/:id";
 //hey
