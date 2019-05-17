@@ -11,20 +11,20 @@ import "./stats.css";
 class StatsContainer extends React.Component {
   state = {};
 
-  componentDidMount() {
-    axios
-      .get(`${ROUTES.URL}/api/groups/1`)
-      .then(res => {
-        this.setState({ groups: res.data });
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  }
+  // componentDidMount() {
+  //   axios
+  //     .get(`${ROUTES.URL}/api/groups/1`)
+  //     .then(res => {
+  //       this.setState({ groups: res.data });
+  //     })
+  //     .catch(error => {
+  //       console.log(error);
+  //     });
+  // }
 
   render() {
     console.log("stats state", this.state.groups);
-    console.log("stats props", this.props);
+    console.log("stats props", this.props.state.groups[0]);
     return (
       <div className="stats-container">
         <div className="stats-title">
@@ -33,7 +33,7 @@ class StatsContainer extends React.Component {
             <h6>Competition ends: END DATE HERE </h6>
           </div>
           <div>
-            <h5>Total Pot: {this.state.buy_in_amount}</h5>
+            <h5>Total Pot: {this.props.state.groups[0].buy_in_amount}</h5>
           </div>
         </div>
 
