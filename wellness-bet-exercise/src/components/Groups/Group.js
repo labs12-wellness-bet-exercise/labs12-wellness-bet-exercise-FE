@@ -1,13 +1,13 @@
-import React from 'react';
-import axios from 'axios';
-import Payment from '../Payment/paymentProof.js'
+import React from "react";
+import axios from "axios";
+import Payment from "../Payment/paymentProof.js";
 
 class Group extends React.Component {
-  state={}
+  state = {};
 
-  componentDidMount(){
+  componentDidMount() {
     axios
-    .get(`https://wellness-bet.herokuapp.com${this.props.location.pathname}`)
+      .get(`https://wellness-bet.herokuapp.com${this.props.location.pathname}`)
       // .get(`http://localhost:5000${this.props.location.pathname}`)
       .then(res => {
         console.log("Group View", res.data);
@@ -17,42 +17,18 @@ class Group extends React.Component {
         console.log(err);
       });
   }
-  render(){
+  render() {
+    console.log("render groupview", this.state.group);
     return (
       <div>
         <div className="one-group">
           <h3>Group View</h3>
-          {/* <h6>{props.groups.group_name}</h6> */}
-          {/* <h3>
-                <strong>Group Name: </strong>
-                {props.groupArray.group_name}
-              </h3>
-              <h3>
-                <strong>Buy In Amount: </strong>
-                {props.groupArray.buy_in_amount}
-              </h3>
-              <h3>
-                <strong>Start Date: </strong>
-                {props.groupArray.start_date}
-              </h3>
-              <h3>
-                <strong>End Date: </strong>
-                {props.groupArray.end_date}
-              </h3>
-              <h3>
-                <strong>Join Code: </strong>
-                {props.groupArray.join_code}
-              </h3>
-              <h3>
-                <strong>Pot Total: </strong>
-                {props.groupArray.pot_total}
-              </h3> */}
-              <Payment />
+          <h6>{this.state.buy_in_amount}</h6>
+          <Payment />
         </div>
       </div>
     );
   }
-  
-};
+}
 
 export default Group;

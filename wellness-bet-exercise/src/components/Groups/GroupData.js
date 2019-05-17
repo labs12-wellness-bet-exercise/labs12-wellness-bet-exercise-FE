@@ -6,11 +6,13 @@ import GroupList from "./GroupList";
 class GroupData extends React.Component {
   state = {};
 
-  componentDidMount() {
-    console.log("componentdidmount", this.state);
+  //I have the id hardcoded in here because I did not have any groups on my user at the time i needed to test this.
+  //you should be able to comment out the route and uncomment out the other route to switch it to how it should be.
+  getGroups = () => {
+    // console.log("getGroups", this.props.user_id);
     axios
-      .get(`${URL}/api/usergroups/${this.props.user_id}`)
-      //.get(`${URL}/api/usergroups/1`)
+      //.get(`${URL}/api/usergroups/${this.props.user_id}`)
+      .get(`${URL}/api/usergroups/1`)
       .then(res => {
         console.log("response data", res.data);
         this.setState({ groups: res.data });
@@ -18,19 +20,18 @@ class GroupData extends React.Component {
       .catch(err => {
         console.log(err);
       });
+  };
+
+  componentDidMount() {
+    this.getGroups();
+
+    // console.log("componentdidmount props", this.props);
   }
 
-  // componentWillReceiveProps(newProps) {
-  //   if (this.props.match !== undefined)
-  //     // if (this.props.match.params !== newProps.match.params) {
-  //     this.fetchGroups(newProps.match.params.id);
-  //   // }
-  // }
-
   render() {
-    console.log("groupData", this.state.groups);
-    console.log("groupData props", this.props);
-    return <GroupList groups={this.state.groups} />;
+    //console.log("groupData", this.state);
+    // console.log("groupData props", this.props.user_id);
+    return <GroupList groups={this.props.groups} {...this.state} />;
   }
 }
 

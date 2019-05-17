@@ -1,5 +1,6 @@
 import React from "react";
 import { Bar } from "react-chartjs-2";
+import "./stats.css";
 
 class StatGraph extends React.Component {
   state = {
@@ -17,7 +18,7 @@ class StatGraph extends React.Component {
 
   render() {
     return (
-      <div className="chart">
+      <div className="bar-chart">
         <Bar
           data={this.state.chartData}
           options={{
