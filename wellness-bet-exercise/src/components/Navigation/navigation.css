@@ -15,11 +15,11 @@ div {
   color: white;
 }
 
-/* .appContainer {
+.appContainer {
   display: flex;
   flex-direction: column;
-  max-width: 1280px;
-} */
+  justify-content: space-between;
+}
 
 .verticalNav {
   /* position: absolute; */
@@ -36,6 +36,9 @@ div {
   .verticalNav {
     width: 100%;
     justify-content: space-between;
+    border-right: 0;
+    border-bottom: 1px solid #8cc0e2;
+    margin-bottom: 1%;
   }
 }
 
