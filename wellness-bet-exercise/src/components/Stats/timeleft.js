@@ -3,9 +3,12 @@ import { Doughnut } from "react-chartjs-2";
 
 const getTimeLeft = endtime => {
   var t = Date.parse(endtime) - Date.parse(new Date());
-  // var seconds = Math.floor((t / 1000) % 60);
-  // var minutes = Math.floor((t / 1000 / 60) % 60);
-  // var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+  var days = Math.floor(t / (1000 * 60 * 60 * 24));
+  return Math.abs(days);
+};
+
+const getTimeSpent = starttime => {
+  var t = Date.parse(new Date() - Date.parse(starttime));
   var days = Math.floor(t / (1000 * 60 * 60 * 24));
   return Math.abs(days);
 };
@@ -31,7 +34,10 @@ class TimeLeft extends React.Component {
       datasets: [
         {
           label: "Steps",
-          data: [getTimeLeft(this.props.end_date), 22],
+          data: [
+            getTimeLeft(this.props.end_date),
+            getTimeSpent(this.props.start_date)
+          ],
           backgroundColor: ["rgba(77, 5, 232, 1)", "rgb(186,85,211)"]
         }
       ]
