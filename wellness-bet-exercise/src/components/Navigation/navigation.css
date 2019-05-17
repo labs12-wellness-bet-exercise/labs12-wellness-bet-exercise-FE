@@ -20,7 +20,7 @@ div {
   display: flex;
   flex-direction: column;
   width: 200px;
-  border-right: 2px solid #8cc0e2;
+  border-right: 1px solid #8cc0e2;
   height: 100%;
   /* bottom: 0; */
 }
