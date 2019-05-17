@@ -14,18 +14,18 @@ class MyStats extends React.Component {
   };
 
   render() {
+    console.log("steps", this.props);
     return (
       <div className="stats-components-titles">
         <>
-          <h3>My Stats</h3>
-          {this.state.renderToggle ? (
-            <Button onClick={this.renderForm()}>Log Activity</Button>
+          {this.props ? <h6>#of steps placeholder</h6> : <h3>0</h3>}
+
+          {!this.state.renderToggle ? (
+            <Button onClick={() => this.renderForm()}>Log Activity</Button>
           ) : (
-            <StepsForm renderForm={() => this.renderForm} />
+            <StepsForm renderForm={() => this.renderForm()} />
           )}
         </>
-
-        <h2>Today</h2>
       </div>
     );
   }

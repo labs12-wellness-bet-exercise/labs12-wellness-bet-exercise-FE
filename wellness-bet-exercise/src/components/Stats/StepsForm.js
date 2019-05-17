@@ -8,7 +8,7 @@ class StepForm extends React.Component {
       <div>
         <h3>How many steps did you take today?</h3>
         <input placeholder="steps taken" type="integer" />
-        <Button>Submit</Button>
+        <Button onClick={() => this.props.renderForm()}>Submit</Button>
       </div>
     );
   }
