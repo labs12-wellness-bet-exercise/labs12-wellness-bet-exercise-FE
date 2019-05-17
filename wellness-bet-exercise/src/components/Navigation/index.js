@@ -40,56 +40,58 @@ class Navigation extends React.Component {
         <div className="horizontalNav">
           <button onClick={this.props.logout}>logout</button>
         </div>
-        <div className="navAndDash">
-          <div className="verticalNav">
-            <div className="myGroupsHeader">
-              <h3>My Groups</h3>
-              <GroupData user_id={this.props.user_id} {...this.props} />
+        <div className="appContainer">
+          <div className="navAndDash">
+            <div className="verticalNav">
+              <div className="myGroupsHeader">
+                <h3>My Groups</h3>
+                <GroupData user_id={this.props.user_id} {...this.props} />
+              </div>
+
+              <Link to="/api/groupCreate">Create Group</Link>
+              <Link to="/api/groupJoin">Join Group</Link>
+              <Link to="/api/statsContainer">Stats</Link>
             </div>
 
-            <Link to="/api/groupCreate">Create Group</Link>
-            <Link to="/api/groupJoin">Join Group</Link>
-            <Link to="/api/statsContainer">Stats</Link>
-          </div>
-
-          <div className="dashboard">
-            <Route
-              path={ROUTES.GROUP_VIEW}
-              render={routeProps => {
-                return (
-                  <Group
-                    {...routeProps}
-                    {...this.props}
-                    user_id={this.props.user.user_id}
-                    buyin={this.state.buy_in_amount}
-                  />
-                );
-              }}
-            />
-            <Route
-              path={ROUTES.GROUP_CREATE}
-              render={routeProps => (
-                <GroupCreate {...routeProps} {...this.props} />
-              )}
-            />
-            <Route
-              path={ROUTES.GROUP_JOIN}
-              render={routeProps => {
-                return <GroupJoin {...this.props} {...routeProps} />;
-              }}
-            />
-            <Route
-              path={"/api/statsContainer"}
-              render={renderProps => {
-                return (
-                  <StatsContainer
-                    {...renderProps}
-                    state={this.state}
-                    {...this.props}
-                  />
-                );
-              }}
-            />
+            <div className="dashboard">
+              <Route
+                path={ROUTES.GROUP_VIEW}
+                render={routeProps => {
+                  return (
+                    <Group
+                      {...routeProps}
+                      {...this.props}
+                      user_id={this.props.user.user_id}
+                      buyin={this.state.buy_in_amount}
+                    />
+                  );
+                }}
+              />
+              <Route
+                path={ROUTES.GROUP_CREATE}
+                render={routeProps => (
+                  <GroupCreate {...routeProps} {...this.props} />
+                )}
+              />
+              <Route
+                path={ROUTES.GROUP_JOIN}
+                render={routeProps => {
+                  return <GroupJoin {...this.props} {...routeProps} />;
+                }}
+              />
+              <Route
+                path={"/api/statsContainer"}
+                render={renderProps => {
+                  return (
+                    <StatsContainer
+                      {...renderProps}
+                      state={this.state}
+                      {...this.props}
+                    />
+                  );
+                }}
+              />
+            </div>
           </div>
         </div>
       </div>

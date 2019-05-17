@@ -11,8 +11,8 @@ class GroupData extends React.Component {
   getGroups = () => {
     // console.log("getGroups", this.props.user_id);
     axios
-      //.get(`${URL}/api/usergroups/${this.props.user_id}`)
-      .get(`${URL}/api/usergroups/1`)
+      .get(`${URL}/api/usergroups/${this.props.user_id}`)
+      // .get(`${URL}/api/usergroups/1`)
       .then(res => {
         console.log("response data", res.data);
         this.setState({ groups: res.data });

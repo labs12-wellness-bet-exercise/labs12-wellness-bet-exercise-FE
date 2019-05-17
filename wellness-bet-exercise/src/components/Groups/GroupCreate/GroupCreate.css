@@ -1,10 +1,6 @@
 .groupFormContainer {
   text-align: center;
-  margin: 50px ;
-  text-shadow: 2px 1px 7px rgba(0,0,0,0.92);
-  background-color: rgba(214, 232, 243, .5);
-  border: 6px groove #2B8BC9;
-  height: 90%;
+  height: 100%;
 }
 
 img {

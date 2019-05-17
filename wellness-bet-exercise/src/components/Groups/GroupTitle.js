@@ -1,4 +1,5 @@
 import React from "react";
+import "./Group.css";
 
 const GroupTitle = props => {
   return (

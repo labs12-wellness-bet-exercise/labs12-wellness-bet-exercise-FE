@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import MemberList from "./MemberList.js";
 import Payment from "../Payment/paymentProof.js";
+import "./Group.css";
 
 class Group extends React.Component {
   state = {};
@@ -23,9 +24,9 @@ class Group extends React.Component {
     console.log(this.state, "group view props");
     return (
       <div>
-        <div className="one-group">
+        <div className="group-wrapper">
           {this.state.group ? (
-            <div>
+            <div className="group-container">
               <img src={this.state.group[0].group_photo} alt="group photo" />
               <h3>{this.state.group[0].group_name} </h3>
               <h5>
