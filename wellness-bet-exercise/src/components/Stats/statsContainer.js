@@ -11,26 +11,26 @@ import "./stats.css";
 class StatsContainer extends React.Component {
   state = {};
 
-  // componentDidMount() {
-  //   axios
-  //     .get(`${ROUTES.URL}/api/groups/1`)
-  //     .then(res => {
-  //       this.setState({ groups: res.data });
-  //     })
-  //     .catch(error => {
-  //       console.log(error);
-  //     });
-  // }
+  componentDidMount() {
+    axios
+      .get(`${ROUTES.URL}/api/steps/1`)
+      .then(res => {
+        this.setState({ steps: res.data });
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
 
   render() {
     console.log("stats state", this.state.groups);
-    console.log("stats props", this.props.state.groups[0]);
+    console.log("stats props", this.props);
     return (
       <div className="stats-container">
         <div className="stats-title">
           <div className="flex-title-info">
             <h4>{this.state.group}</h4>
-            <h6>Competition ends: END DATE HERE </h6>
+            <h6>Competition ends: {this.props.state.groups[0].end_date} </h6>
           </div>
           <div>
             <h5>Total Pot: {this.props.state.groups[0].buy_in_amount}</h5>
@@ -39,8 +39,11 @@ class StatsContainer extends React.Component {
 
         <div className="flex-stat-items">
           <Leaderboard className="stat-item" />
-          <TimeLeft className="stat-item" />
-          <MyStats className="stat-item" />
+          <TimeLeft
+            className="stat-item"
+            end_date={this.props.state.groups[0].end_date}
+          />
+          <MyStats className="stat-item" steps={this.state.steps} />
         </div>
         <StatGraph />
       </div>

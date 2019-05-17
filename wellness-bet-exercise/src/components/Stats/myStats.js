@@ -13,18 +13,17 @@ class MyStats extends React.Component {
   };
 
   render() {
+    console.log("steps", this.state);
     return (
       <div>
         <>
-          <h3>My Stats</h3>
-          {this.state.renderToggle ? (
-            <Button onClick={this.renderForm()}>Log Activity</Button>
+          <h3> steps</h3>
+          {!this.state.renderToggle ? (
+            <Button onClick={() => this.renderForm()}>Log Activity</Button>
           ) : (
-            <StepsForm renderForm={() => this.renderForm} />
+            <StepsForm renderForm={() => this.renderForm()} />
           )}
         </>
-
-        <h2>Today</h2>
       </div>
     );
   }
