@@ -1,3 +1,6 @@
+/* .stats-container {
+} */
+
 .bar-chart {
   border: 1px solid #8cbfe1;
   border-radius: 10px;
@@ -6,13 +9,26 @@
 
 .stats-title {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .flex-stat-items {
+  margin: 1%;
   display: flex;
+  justify-content: space-between;
+}
+
+@media (max-width: 568px) {
+  .flex-stat-items {
+    flex-direction: column-reverse;
+    justify-content: center;
+  }
 }
 
 .stat-item {
   border: 1px solid #8cbfe1;
+}
+
+.stats-components-titles {
+  text-align: center;
 }
