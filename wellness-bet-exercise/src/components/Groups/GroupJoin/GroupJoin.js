@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { URL } from "../../../constants/routes.js";
+import "./GroupJoin.css";
 
 class GroupJoin extends React.Component {
   constructor(props) {
@@ -59,7 +60,7 @@ class GroupJoin extends React.Component {
   render() {
     console.log("state groupjoin", this.state);
     return (
-      <div>
+      <div className="GroupJoin">
         <h1>Enter code to join a group</h1>
         <form onSubmit={this.handleSubmit}>
           <input

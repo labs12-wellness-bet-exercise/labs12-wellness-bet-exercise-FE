@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "@material-ui/core/Button";
 import StepsForm from "./StepsForm";
+import "./stats.css";
 
 class MyStats extends React.Component {
   state = {
@@ -15,7 +16,7 @@ class MyStats extends React.Component {
   render() {
     console.log("steps", this.props);
     return (
-      <div>
+      <div className="stats-components-titles">
         <>
           {this.props ? <h6>#of steps placeholder</h6> : <h3>0</h3>}
 

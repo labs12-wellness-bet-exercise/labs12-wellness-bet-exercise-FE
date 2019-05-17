@@ -1,7 +1,9 @@
 import React from "react";
+
 import axios from "axios";
 import * as ROUTES from "../../constants/routes";
 import LeaderUser from "./LeaderUser";
+import "./stats.css";
 
 class Leaderboard extends React.Component {
   state = {};
@@ -20,7 +22,7 @@ class Leaderboard extends React.Component {
   render() {
     console.log("leaderboard state", this.state.users);
     return (
-      <div>
+      <div className="stats-components-titles">
         <h2>Leaderboard</h2>
 
         {this.state.users ? (
@@ -34,5 +36,6 @@ class Leaderboard extends React.Component {
     );
   }
 }
+
 
 export default Leaderboard;
