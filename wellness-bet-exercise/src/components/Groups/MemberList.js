@@ -12,8 +12,6 @@ class MemberList extends React.Component {
   };
 
   componentDidMount() {
-    console.log("get group id from url split", getGroupId(this.props.pathname));
-    console.log("MEMBER LIST PROPS", this.props.pathname);
     axios
       .get(
         `https://wellness-bet.herokuapp.com/api/usergroups/members/${getGroupId(
@@ -24,18 +22,28 @@ class MemberList extends React.Component {
         this.setState({
           members: res.data
         });
+      })
+      .catch(error => {
+        console.log("error in cdm Memberlist", error);
       });
   }
 
   render() {
-    console.log("members array", this.state.members);
-    // console.log("MEMBER LIST PROPS", this.props.testingGroup[0].group_id);
-    // console.log("GROUP ID", this.props.group[0].group.group_id);
+    console.log("props memberlist", this.props.group);
     return (
       <div>
-        {this.state.members.map(member => (
-          <GroupMember member={member} />
-        ))}
+        {this.props.group ? (
+          <div>
+            <h2 />
+            {this.state.members.map(member => (
+              <GroupMember member={member} />
+            ))}
+          </div>
+        ) : (
+          <div>
+            <p>LOADING</p>
+          </div>
+        )}
       </div>
     );
   }

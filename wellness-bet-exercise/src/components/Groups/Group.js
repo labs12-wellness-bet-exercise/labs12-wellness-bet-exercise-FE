@@ -24,14 +24,13 @@ class Group extends React.Component {
     return (
       <div>
         <div className="one-group">
-          <h3>Group View</h3>
           {/* <h6>{props.groups.group_name}</h6> */}
           {/* <h3>
                 <strong>Group Name: </strong>
                 {props.groupArray.group_name}
               </h3>
               <h3>
-                <strong>Buy In Amount: </strong>
+                <strong>Buy In Amo unt: </strong>
                 {props.groupArray.buy_in_amount}
               </h3>
               <h3>
@@ -51,10 +50,13 @@ class Group extends React.Component {
                 {props.groupArray.pot_total}
               </h3> */}
           {this.state.group ? (
-            <MemberList
-              group={this.state.group}
-              pathname={this.props.location.pathname}
-            />
+            <div>
+              <h3>{this.state.group[0].group_name} </h3>
+              <MemberList
+                group={this.state.group}
+                pathname={this.props.location.pathname}
+              />
+            </div>
           ) : (
             <p>Loading...</p>
           )}
