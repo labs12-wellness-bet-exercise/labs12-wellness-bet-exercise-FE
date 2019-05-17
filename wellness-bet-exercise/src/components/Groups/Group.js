@@ -51,7 +51,14 @@ class Group extends React.Component {
               </h3> */}
           {this.state.group ? (
             <div>
+              <img src={this.state.group[0].group_photo} alt="group photo" />
               <h3>{this.state.group[0].group_name} </h3>
+              <h5>
+                Competition Dates: {this.state.group[0].start_date} -{" "}
+                {this.state.group[0].end_date}
+              </h5>
+              <h5>Buy-in Amount: ${this.state.group[0].buy_in_amount}</h5>
+              <h5>Message From Admin: {this.state.group[0].group_message}</h5>
               <MemberList
                 group={this.state.group}
                 pathname={this.props.location.pathname}
