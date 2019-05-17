@@ -16,7 +16,7 @@ class MemberList extends React.Component {
     console.log("MEMBER LIST PROPS", this.props.pathname);
     axios
       .get(
-        `https://wellness-bet.herokuapp.com/api/participants/members/${getGroupId(
+        `https://wellness-bet.herokuapp.com/api/usergroups/members/${getGroupId(
           this.props.pathname
         )}`
       )
@@ -26,14 +26,16 @@ class MemberList extends React.Component {
         });
       });
   }
-  //
+
   render() {
-    console.log(this.state.members);
+    console.log("members array", this.state.members);
     // console.log("MEMBER LIST PROPS", this.props.testingGroup[0].group_id);
     // console.log("GROUP ID", this.props.group[0].group.group_id);
     return (
       <div>
-        <GroupMember />
+        {this.state.members.map(member => (
+          <GroupMember member={member} />
+        ))}
       </div>
     );
   }
