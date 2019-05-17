@@ -13,11 +13,12 @@ class MyStats extends React.Component {
   };
 
   render() {
-    console.log("steps", this.state);
+    console.log("steps", this.props);
     return (
       <div>
         <>
-          <h3> steps</h3>
+          {this.props ? <h6>#of steps placeholder</h6> : <h3>0</h3>}
+
           {!this.state.renderToggle ? (
             <Button onClick={() => this.renderForm()}>Log Activity</Button>
           ) : (
