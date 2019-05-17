@@ -1,31 +1,51 @@
 import React from "react";
+import axios from "axios";
+import * as ROUTES from "../../constants/routes";
+
 import TimeLeft from "./timeleft";
 import MyStats from "./myStats";
 import StatGraph from "./statGraph";
 import Leaderboard from "./Leaderboard";
 import "./stats.css";
 
-const StatsContainer = () => {
-  return (
-    <div className="stats-container">
-      <div className="stats-title">
-        <div className="flex-title-info">
-          <h4>GROUP NAME GOES HERE</h4>
-          <h6>Competition ends: END DATE HERE </h6>
-        </div>
-        <div>
-          <h5>Total Pot: $ Pot Amount here</h5>
-        </div>
-      </div>
+class StatsContainer extends React.Component {
+  state = {};
 
-      <div className="flex-stat-items">
-        <Leaderboard className="stat-item" />
-        <TimeLeft className="stat-item" />
-        <MyStats className="stat-item" />
+  componentDidMount() {
+    axios
+      .get(`${ROUTES.URL}/api/groups/1`)
+      .then(res => {
+        this.setState({ groups: res.data });
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
+
+  render() {
+    console.log("stats state", this.state.groups);
+    console.log("stats props", this.props);
+    return (
+      <div className="stats-container">
+        <div className="stats-title">
+          <div className="flex-title-info">
+            <h4>{this.state.group}</h4>
+            <h6>Competition ends: END DATE HERE </h6>
+          </div>
+          <div>
+            <h5>Total Pot: {this.state.buy_in_amount}</h5>
+          </div>
+        </div>
+
+        <div className="flex-stat-items">
+          <Leaderboard className="stat-item" />
+          <TimeLeft className="stat-item" />
+          <MyStats className="stat-item" />
+        </div>
+        <StatGraph />
       </div>
-      <StatGraph />
-    </div>
-  );
-};
+    );
+  }
+}
 
 export default StatsContainer;
