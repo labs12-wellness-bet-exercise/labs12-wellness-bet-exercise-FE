@@ -51,7 +51,10 @@ class Group extends React.Component {
                 {props.groupArray.pot_total}
               </h3> */}
           {this.state.group ? (
-            <MemberList group={this.state.group} />
+            <MemberList
+              group={this.state.group}
+              pathname={this.props.location.pathname}
+            />
           ) : (
             <p>Loading...</p>
           )}

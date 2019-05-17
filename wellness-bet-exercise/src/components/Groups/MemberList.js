@@ -2,18 +2,23 @@ import React from "react";
 import GroupMember from "./GroupMember";
 import axios from "axios";
 
+function getGroupId(url) {
+  return url.split("/").pop();
+}
+
 class MemberList extends React.Component {
   state = {
     members: []
   };
 
   componentDidMount() {
-    console.log("MEMBER LIST PROPS", this.props);
+    console.log("get group id from url split", getGroupId(this.props.pathname));
+    console.log("MEMBER LIST PROPS", this.props.pathname);
     axios
       .get(
-        `https://wellness-bet.herokuapp.com/api/participants/members/${
-          this.props.group[0].group_id
-        }`
+        `https://wellness-bet.herokuapp.com/api/participants/members/${getGroupId(
+          this.props.pathname
+        )}`
       )
       .then(res => {
         this.setState({
