@@ -2,6 +2,11 @@
   border: 1px solid #8cbfe1;
   border-radius: 10px;
   margin: 10px;
+  padding: 5px;
+}
+
+.stats-container {
+  margin: 5px;
 }
 
 .stats-title {
@@ -11,6 +16,7 @@
 
 .flex-stat-items {
   display: flex;
+  margin: 10px;
 }
 
 .stat-item {

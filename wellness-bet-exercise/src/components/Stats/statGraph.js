@@ -5,7 +5,7 @@ import "./stats.css";
 class StatGraph extends React.Component {
   state = {
     chartData: {
-      labels: ["Lydia", "Megan", "Joe", "Patrick"],
+      labels: ["Jane Fonda", "Richard Simmons", "Jack LaLanne", "Jack LaLanne"],
       datasets: [
         {
           label: "Steps",
