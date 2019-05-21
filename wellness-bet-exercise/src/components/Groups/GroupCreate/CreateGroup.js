@@ -59,6 +59,7 @@ class CreateGroup extends React.Component {
   render() {
     return (
       <div className="groupFormContainer">
+        <h1>New Group</h1>
         <form onSubmit={this.submitGroup}>
           <TextField
             label="Group Name"
@@ -132,7 +133,7 @@ class CreateGroup extends React.Component {
             value={this.state.group_message}
             onChange={this.handleChange}
           />
-          <Button>Submit</Button>
+          <Button>Create</Button>
         </form>
       </div>
     );

@@ -2,6 +2,8 @@ import React from "react";
 import axios from "axios";
 import { URL } from "../../../constants/routes.js";
 import "./GroupJoin.css";
+import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
 
 class GroupJoin extends React.Component {
   constructor(props) {
@@ -63,13 +65,15 @@ class GroupJoin extends React.Component {
       <div className="GroupJoin">
         <h1>Enter code to join a group</h1>
         <form onSubmit={this.handleSubmit}>
-          <input
-            placeholder="join code"
+          <TextField
+            placeholder="Join Code"
             name="join_code"
+            margin="normal"
+            variant="outlined"
             onChange={this.handleChanges}
             value={this.state.join_code}
           />
-          <button type="submit">submit join code</button>
+          <Button type="submit">submit join code</Button>
         </form>
       </div>
     );
