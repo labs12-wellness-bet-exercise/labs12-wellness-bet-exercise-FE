@@ -2,6 +2,10 @@ import React from "react";
 import "./createGroup.css";
 import * as ROUTES from "../../../constants/routes";
 import axios from "axios";
+import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
+// import InputAdornment from "@material-ui/core/InputAdornment";
+
 
 class CreateGroup extends React.Component {
   state = {
@@ -10,8 +14,9 @@ class CreateGroup extends React.Component {
     end_date: "",
     buy_in_amount: null,
     group_message: "",
+
     group_photo:
-      "https://kurbo.com/wp-content/uploads/2017/01/pilates-exercise.jpg",
+      "",
     //trying to add a couple mor fields below
     admin_id: null,
     join_code: ""
@@ -33,6 +38,7 @@ class CreateGroup extends React.Component {
       join_code: (new Date() % 9e6).toString(36)
     });
   }
+
 
   // getUserId = () => {
   //   return this.props.user_id;
@@ -59,6 +65,7 @@ class CreateGroup extends React.Component {
     axios
       .post(`${ROUTES.URL}/api/groups`, group)
       .then(res => {
+
         console.log("post to groups response", res.data);
         console.log(
           "admin and group",
@@ -129,6 +136,7 @@ class CreateGroup extends React.Component {
   //     .catch(err => console.log(err));
   // };
 
+
   handleChange = e => {
     this.setState({
       ...this.state,
@@ -140,37 +148,60 @@ class CreateGroup extends React.Component {
     return (
       <div className="groupFormContainer">
         <form onSubmit={this.submitGroup}>
-          <input
+
+          <TextField
+            label="Group Name"
             type="text"
             name="group_name"
             value={this.state.group_name}
+            margin="normal"
+            variant="outlined"
             placeholder="Enter Group Name"
             onChange={this.handleChange}
           />
-          <label>Competition start date</label>
-          <input
+          <TextField
+            InputLabelProps={{ shrink: true }}
+            label="Competition start date"
             onChange={this.handleChange}
+            margin="normal"
+            variant="outlined"
+            id="date"
             type="date"
             name="start_date"
             value={this.state.start_date}
           />
-          <label>Competition end date</label>
-          <input
+          <TextField
+            InputLabelProps={{ shrink: true }}
+            margin="normal"
+            variant="outlined"
+            label="Competition End Date"
             onChange={this.handleChange}
+            id="date"
             type="date"
             name="end_date"
             value={this.state.end_date}
           />
-          <label>Buy-in amount</label>
-          <input
+          <TextField
+            margin="normal"
+            variant="outlined"
+            label="Buy in Amount in USD ($)"
             type="number"
             name="buy_in_amount"
             value={this.state.buy_in_amount}
             placeholder="Enter buy-in amount..."
             onChange={this.handleChange}
+            // InputProps={{
+            //   startAdornment: (
+            //     <InputAdornment position="start">Kg</InputAdornment>
+            //   )
+            // }}
+            // startAdornment={<InputAdornment position="start">$</InputAdornment>}
           />
-          <label>Image link for your group photo</label>
-          <input
+
+          <TextField
+            margin="normal"
+            variant="outlined"
+            label="Image link for your group photo"
             className="linkSpace"
             name="group_photo"
             onChange={this.handleChange}
@@ -178,14 +209,20 @@ class CreateGroup extends React.Component {
             type="link"
             placeholder="image link"
           />
-          <textarea
+          <TextField
             type="text"
             name="group_message"
+            id="outlined-textarea"
+            label="Group Message"
+            placeholder="Post a greeting to your group!"
+            multiline
+            margin="normal"
+            variant="outlined"
             value={this.state.group_message}
-            placeholder="Post a greeting for your group!"
             onChange={this.handleChange}
           />
-          <button onClick={this.submitGroup}>Submit</button>
+          <Button>Submit</Button>
+
         </form>
       </div>
     );
