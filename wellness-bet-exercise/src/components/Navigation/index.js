@@ -10,6 +10,8 @@ import GroupData from "../Groups/GroupData";
 import StatsContainer from "../Stats/statsContainer";
 //import Payment from "../Payment/paymentProof.js";
 import Button from "@material-ui/core/Button";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
 
 class Navigation extends React.Component {
   state = {};
@@ -38,15 +40,17 @@ class Navigation extends React.Component {
     return (
       <div>
         {console.log("nav props", this.props)}
-        <div className="horizontalNav">
-          <Button
-            variant="contained"
-            color="primary"
-            onClick={this.props.logout}
-          >
-            logout
-          </Button>
-        </div>
+        <AppBar>
+          <Toolbar className="horizontalNav">
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={this.props.logout}
+            >
+              logout
+            </Button>
+          </Toolbar>
+        </AppBar>
         <div className="appContainer">
           <div className="navAndDash">
             <div className="verticalNav">
