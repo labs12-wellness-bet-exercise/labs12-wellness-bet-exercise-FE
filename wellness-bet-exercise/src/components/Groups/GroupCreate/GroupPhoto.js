@@ -8,37 +8,67 @@ class GroupPhoto extends React.Component {
       "https://kurbo.com/wp-content/uploads/2017/01/pilates-exercise.jpg",
     group_id: null
   };
-
-  submitGroup = e => {
-    e.preventDefault();
-    let group = {
+  componentDidMount(){
+    this.setState({
       group_name: this.props.group_name,
       buy_in_amount: Number(this.props.buy_in_amount),
       start_date: this.props.start_date,
       end_date: this.props.end_date,
       group_message: this.props.group_message,
+      admin_id: this.props.routerProps.user_id,
+      join_code: (new Date() % 9e6).toString(36)
+    })
+  }
+  submitGroup = e => {
+    e.preventDefault();
+    let group = {
+      group_name: this.state.group_name,
+      buy_in_amount: Number(this.state.buy_in_amount),
+      start_date: this.state.start_date,
+      end_date: this.state.end_date,
+      group_message: this.state.group_message,
       group_photo: this.state.group_photo,
-      admin_id: 1,
+      admin_id: this.state.admin_id,
       join_code: (new Date() % 9e6).toString(36)
     };
     console.log(group);
     axios
       .post(`${ROUTES.URL}/api/groups`, group)
       .then(res => {
-        let id = res.data.groupId.id;
-        console.log(res)
-        .then(
-          this.joinGroup(this.props.routerProps.user_id, id)
-          )
-        .catch(
-          console.log('error joining created group')
-        )
+        console.log(res.data)
+        this.setState({
+          ...this.state,
+          group_id: res.data.groupId
+        })
       })
+      .then(
+          console.log(this.state.admin_id, this.state.group_id),
+          axios
+             .post(`${ROUTES.URL}/api/participants`, {
+               user_id: this.state.admin_id,
+               group_id: this.state.group_id
+      }))
+      .then(res => console.log(res))
+      .catch(err => console.log(err))
+  }
+    //   .then(res => {
+    //     alert(res);
+    //     return this.joinGroup()
+    //   })
+    //     let id = res.data.groupId.id;
+    //     res.status(201).json(res.data)
+    //     .then(
+    //       this.joinGroup(this.props.routerProps.user_id, id)
+    //       )
+    //     .catch(
+    //       console.log('error joining created group')
+    //     )
+    //   })
       
-      .catch(error => {
-        console.log("Error creating that group...", error);
-      });
-    };
+    //   .catch(error => {
+    //     console.log("Error creating that group...", error);
+    //   });
+    // };
     // this.props.routerProps.history.push(`/api/groups/${id}`);
     
     joinGroup = (user_id, group_id) => {
@@ -49,9 +79,9 @@ class GroupPhoto extends React.Component {
            .json({
              res,
              message: "group created and joined successfully"
-           })
-      });
-  };
+             })
+        });
+    };
 
   handleChange = e => {
     this.setState({

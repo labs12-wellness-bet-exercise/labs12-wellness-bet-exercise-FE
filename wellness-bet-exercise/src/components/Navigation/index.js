@@ -16,8 +16,8 @@ class Navigation extends React.Component {
   getGroupInfo = () => {
     console.log("nav getgroups", this.props.user_id);
     axios
-      //.get(`${URL}/api/usergroups/${this.props.user_id}`)
-      .get(`${ROUTES.URL}/api/groups/1`)
+      .get(`${URL}/api/usergroups/${this.props.user_id}`)
+      // .get(`${ROUTES.URL}/api/groups/1`)
       .then(res => {
         console.log("new response data", res.data);
         this.setState({ groups: res.data });
