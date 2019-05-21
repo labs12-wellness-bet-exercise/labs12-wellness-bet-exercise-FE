@@ -4,7 +4,7 @@ import GroupMessage from './GroupMessage';
 class BuyInAmount extends React.Component {
   state = {
     buyInBool: false,
-    buy_in_amount: 0
+    buy_in_amount: null
   }
   
   handleChange = e => {

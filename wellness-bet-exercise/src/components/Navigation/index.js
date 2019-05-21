@@ -1,14 +1,13 @@
-import React from "react";
 import axios from "axios";
+import React from "react";
 import { Link, Route } from "react-router-dom";
 import "./navigation.css";
 import * as ROUTES from "../../constants/routes";
-import GroupCreate from "../Groups/GroupCreate/GroupCreate";
+import CreateGroup from "../Groups/GroupCreate/CreateGroup";
 import GroupJoin from "../Groups/GroupJoin/GroupJoin";
 import Group from "../Groups/Group";
 import GroupData from "../Groups/GroupData";
 import StatsContainer from "../Stats/statsContainer";
-//import Payment from "../Payment/paymentProof.js";
 import Button from "@material-ui/core/Button";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -19,8 +18,8 @@ class Navigation extends React.Component {
   getGroupInfo = () => {
     console.log("nav getgroups", this.props.user_id);
     axios
-      //.get(`${URL}/api/usergroups/${this.props.user_id}`)
-      .get(`${ROUTES.URL}/api/groups/1`)
+      .get(`${URL}/api/usergroups/${this.props.user_id}`)
+      // .get(`${ROUTES.URL}/api/groups/1`)
       .then(res => {
         console.log("new response data", res.data);
         this.setState({ groups: res.data });
@@ -59,7 +58,7 @@ class Navigation extends React.Component {
                 <GroupData user_id={this.props.user_id} {...this.props} />
               </div>
 
-              <Link to="/api/groupCreate">Create Group</Link>
+              <Link to="/api/createGroup">Create Group</Link>
               <Link to="/api/groupJoin">Join Group</Link>
               <Link to="/api/statsContainer">Stats</Link>
             </div>
@@ -79,9 +78,9 @@ class Navigation extends React.Component {
                 }}
               />
               <Route
-                path={ROUTES.GROUP_CREATE}
+                path={ROUTES.CREATE_GROUP}
                 render={routeProps => (
-                  <GroupCreate {...routeProps} {...this.props} />
+                  <CreateGroup {...routeProps} {...this.props} />
                 )}
               />
               <Route

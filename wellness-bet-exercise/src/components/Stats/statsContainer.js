@@ -42,6 +42,7 @@ class StatsContainer extends React.Component {
           <TimeLeft
             className="stat-item"
             end_date={this.props.state.groups[0].end_date}
+            start_date={this.props.state.groups[0].start_date}
           />
           <MyStats className="stat-item" steps={this.state.steps} />
         </div>
