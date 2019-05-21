@@ -27,18 +27,18 @@ class Payment extends React.Component {
       const formData = new FormData();
       formData.append("file", file);
       formData.append("tags", `codeinfuse, medium, gist`);
-      formData.append("upload_preset", "jd4lvk5f"); // Replace the preset name with your own
-      formData.append("api_key", "629151892737318"); // Replace API key with your own Cloudinary key
+      formData.append("upload_preset", "jd4lvk5f"); 
+      formData.append("api_key", "629151892737318"); // Cloudinary Key
       formData.append("timestamp", (Date.now() / 1000) | 0);
 
-      // Make an AJAX upload request using Axios (replace Cloudinary URL below with your own)
+      // Make an AJAX upload request using Axios (Cloudinary URL)
       return axios
         .post("https://api.cloudinary.com/v1_1/wellness-bet/image/upload", formData, {
           headers: { "X-Requested-With": "XMLHttpRequest" }
         })
         .then(response => {
           const data = response.data;
-          const fileURL = data.secure_url; // You should store this URL for future references in your app
+          const fileURL = data.secure_url; // Store this for future use
           console.log(data, fileURL);
         });
     });
