@@ -10,7 +10,8 @@
 form {
   display: flex;
   flex-direction: column;
-  margin: 15px
+  margin: 15px;
+  height: 100%;
 }
 img {
   width: 40%;

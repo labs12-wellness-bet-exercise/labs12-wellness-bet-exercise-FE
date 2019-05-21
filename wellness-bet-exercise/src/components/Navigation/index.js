@@ -40,12 +40,13 @@ class Navigation extends React.Component {
         <div className="horizontalNav">
           <button onClick={this.props.logout}>logout</button>
         </div>
-        <div className="navAndDash">
-          <div className="verticalNav">
-            <div className="myGroupsHeader">
-              <h3>My Groups</h3>
-              <GroupData user_id={this.props.user_id} {...this.props} />
-            </div>
+        <div className="appContainer">
+          <div className="navAndDash">
+            <div className="verticalNav">
+              <div className="myGroupsHeader">
+                <h3>My Groups</h3>
+                <GroupData user_id={this.props.user_id} {...this.props} />
+              </div>
 
             <Link to="/api/createGroup">Create Group</Link>
             <Link to="/api/groupJoin">Join Group</Link>

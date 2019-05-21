@@ -1,6 +1,7 @@
 import React from "react";
 import GroupMember from "./GroupMember";
 import axios from "axios";
+import "./MemberList.css";
 
 function getGroupId(url) {
   return url.split("/").pop();
@@ -31,9 +32,9 @@ class MemberList extends React.Component {
   render() {
     console.log("props memberlist", this.props.group);
     return (
-      <div>
+      <div className="memberlist-wrapper">
         {this.props.group ? (
-          <div>
+          <div className="memberlist-container">
             <h2 />
             {this.state.members.map(member => (
               <GroupMember member={member} />
