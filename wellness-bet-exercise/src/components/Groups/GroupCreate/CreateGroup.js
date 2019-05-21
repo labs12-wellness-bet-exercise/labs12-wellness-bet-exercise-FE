@@ -1,18 +1,20 @@
 import React from "react";
-import './createGroup.css';
-import * as ROUTES from '../../../constants/routes';
-import axios from 'axios';
+import "./createGroup.css";
+import * as ROUTES from "../../../constants/routes";
+import axios from "axios";
+import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
+// import InputAdornment from "@material-ui/core/InputAdornment";
 
 class CreateGroup extends React.Component {
   state = {
-    group_name: '',
-    start_date: '',
-    end_date: '',
+    group_name: "",
+    start_date: "",
+    end_date: "",
     buy_in_amount: null,
-    group_message: '',
-    group_photo:
-      "https://kurbo.com/wp-content/uploads/2017/01/pilates-exercise.jpg"
-  }
+    group_message: "",
+    group_photo: ""
+  };
 
   submitGroup = e => {
     e.preventDefault();
@@ -30,79 +32,111 @@ class CreateGroup extends React.Component {
     axios
       .post(`${ROUTES.URL}/api/groups`, group)
       .then(res => {
-        console.log(res.data)
+        console.log(res.data);
         this.setState({
           ...this.state,
           group_id: res.data.groupId
-        })
+        });
       })
       .then(
-          console.log(this.state.admin_id, this.state.group_id),
-          axios
-             .post(`${ROUTES.URL}/api/participants`, {
-               user_id: this.state.admin_id,
-               group_id: this.state.group_id
-      }))
+        console.log(this.state.admin_id, this.state.group_id),
+        axios.post(`${ROUTES.URL}/api/participants`, {
+          user_id: this.state.admin_id,
+          group_id: this.state.group_id
+        })
+      )
       .then(res => console.log(res))
-      .catch(err => console.log(err))
-  }
+      .catch(err => console.log(err));
+  };
 
   handleChange = e => {
     this.setState({
       ...this.state,
       [e.target.name]: e.target.value
-    })
-  }
+    });
+  };
 
-  render(){
-    return(
-      <div className='groupFormContainer'>
+  render() {
+    return (
+      <div className="groupFormContainer">
         <form onSubmit={this.submitGroup}>
-          <input
-            type="text" 
+          <TextField
+            label="Group Name"
+            type="text"
             name="group_name"
             value={this.state.group_name}
-            placeholder="Enter Group Name" 
-            onChange={this.handleChange} />
-            <label>Competition start date</label>
-          <input
+            margin="normal"
+            variant="outlined"
+            placeholder="Enter Group Name"
             onChange={this.handleChange}
-            type='date'
-            name='start_date'
-            value={this.state.start_date}/>
-          <label>Competition end date</label>
-          <input
+          />
+          <TextField
+            InputLabelProps={{ shrink: true }}
+            label="Competition start date"
             onChange={this.handleChange}
-            type='date'
-            name='end_date'
-            value={this.state.end_date}/>
-            <label>Buy-in amount</label>
-            <input
-                type="number" 
-                name="buy_in_amount"
-                value={this.state.buy_in_amount}
-                placeholder="Enter buy-in amount..." 
-                onChange={this.handleChange}/> 
-                <label>Image link for your group photo</label>
-            <input
-              className="linkSpace"
-              name="group_photo"
-              onChange=      {this.handleChange}
-              value=      {this.state.group_photo}
-              type="link"
-              placeholder="image link"
-              />
-            <textarea
-              type="text" 
-              name="group_message"
-              value={this.state.group_message}
-              placeholder="Post a greeting for your group!" 
-              onChange={this.handleChange} />
-              <button>Submit</button>
-       </form>
+            margin="normal"
+            variant="outlined"
+            id="date"
+            type="date"
+            name="start_date"
+            value={this.state.start_date}
+          />
+          <TextField
+            InputLabelProps={{ shrink: true }}
+            margin="normal"
+            variant="outlined"
+            label="Competition End Date"
+            onChange={this.handleChange}
+            id="date"
+            type="date"
+            name="end_date"
+            value={this.state.end_date}
+          />
+          <TextField
+            margin="normal"
+            variant="outlined"
+            label="Buy in Amount in USD ($)"
+            type="number"
+            name="buy_in_amount"
+            value={this.state.buy_in_amount}
+            placeholder="Enter buy-in amount..."
+            onChange={this.handleChange}
+            // InputProps={{
+            //   startAdornment: (
+            //     <InputAdornment position="start">Kg</InputAdornment>
+            //   )
+            // }}
+            // startAdornment={<InputAdornment position="start">$</InputAdornment>}
+          />
+
+          <TextField
+            margin="normal"
+            variant="outlined"
+            label="Image link for your group photo"
+            className="linkSpace"
+            name="group_photo"
+            onChange={this.handleChange}
+            value={this.state.group_photo}
+            type="link"
+            placeholder="image link"
+          />
+          <TextField
+            type="text"
+            name="group_message"
+            id="outlined-textarea"
+            label="Group Message"
+            placeholder="Post a greeting to your group!"
+            multiline
+            margin="normal"
+            variant="outlined"
+            value={this.state.group_message}
+            onChange={this.handleChange}
+          />
+          <Button>Submit</Button>
+        </form>
       </div>
-    )
+    );
   }
 }
 
-export default CreateGroup
+export default CreateGroup;
