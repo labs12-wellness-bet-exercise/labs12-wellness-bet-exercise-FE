@@ -9,6 +9,7 @@ import Group from "../Groups/Group";
 import GroupData from "../Groups/GroupData";
 import StatsContainer from "../Stats/statsContainer";
 //import Payment from "../Payment/paymentProof.js";
+import Button from "@material-ui/core/Button";
 
 class Navigation extends React.Component {
   state = {};
@@ -38,7 +39,13 @@ class Navigation extends React.Component {
       <div>
         {console.log("nav props", this.props)}
         <div className="horizontalNav">
-          <button onClick={this.props.logout}>logout</button>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={this.props.logout}
+          >
+            logout
+          </Button>
         </div>
         <div className="appContainer">
           <div className="navAndDash">
