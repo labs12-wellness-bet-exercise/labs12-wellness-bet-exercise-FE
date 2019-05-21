@@ -40,7 +40,7 @@ class PaymentDisplay extends React.Component {
                 doloribus, voluptas rem alias. Vitae?
               </div>
               <Image cloudName="demo" publicId="sample" />
-              {/* <div className="actions">
+              <div className="actions">
                 <Popup
                   trigger={<button className="button"> Approve Payment </button>}
                   position="top center"
@@ -62,7 +62,7 @@ class PaymentDisplay extends React.Component {
                 >
                   close modal
                 </button>
-              </div> */}
+              </div>
             </div>
           )}
         </Popup>
