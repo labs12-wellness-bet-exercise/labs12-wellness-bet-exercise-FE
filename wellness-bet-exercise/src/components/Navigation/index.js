@@ -3,7 +3,7 @@ import React from 'react';
 import { Link, Route } from 'react-router-dom';
 import './navigation.css'
 import * as ROUTES from '../../constants/routes';
-import GroupCreate from '../Groups/GroupCreate/GroupCreate';
+import CreateGroup from '../Groups/GroupCreate/CreateGroup';
 import GroupJoin from '../Groups/GroupJoin/GroupJoin';
 import Group from '../Groups/Group';
 import GroupData from '../Groups/GroupData'
@@ -47,7 +47,7 @@ class Navigation extends React.Component {
               <GroupData user_id={this.props.user_id} {...this.props} />
             </div>
 
-            <Link to="/api/groupCreate">Create Group</Link>
+            <Link to="/api/createGroup">Create Group</Link>
             <Link to="/api/groupJoin">Join Group</Link>
             <Link to="/api/statsContainer">Stats</Link>
           </div>
@@ -67,9 +67,9 @@ class Navigation extends React.Component {
               }}
             />
             <Route
-              path={ROUTES.GROUP_CREATE}
+              path={ROUTES.CREATE_GROUP}
               render={routeProps => (
-                <GroupCreate {...routeProps} {...this.props} />
+                <CreateGroup {...routeProps} {...this.props} />
               )}
             />
             <Route
