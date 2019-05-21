@@ -1,14 +1,12 @@
-import React from 'react';
+import React from "react";
+import "./Group.css";
 
 const GroupTitle = props => {
   return (
-      <div className="one-group">
-        {!props.group ? 
-          <h6>Loading...</h6>
-          :<h6>{props.group.group_name}</h6>}
-        
-       
-      </div>
+    <div className="one-group">
+      {console.log("grouptitle props", props)}
+      {!props.group ? <h6>Loading...</h6> : <h6>{props.group.group_name}</h6>}
+    </div>
   );
 };
 

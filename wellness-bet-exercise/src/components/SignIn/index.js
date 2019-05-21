@@ -2,6 +2,7 @@ import React from "react";
 import fire from "../../config/fire";
 import firebase from "firebase";
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
+import "./index.css";
 
 const firebaseuiConfig = {
   signInFlow: "popup",
@@ -16,7 +17,7 @@ class SignIn extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="welcome">
         <h1>Welcome to Wellness Bet Fitness!</h1>
         <StyledFirebaseAuth
           uiConfig={firebaseuiConfig}

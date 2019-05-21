@@ -1,45 +1,77 @@
 div {
-  color: #2B8BC9
+  color: #2b8bc9;
 }
 .horizontalNav {
   display: flex;
   justify-content: flex-end;
-  background-color: #E9F3F9
+  background-color: #e9f3f9;
 }
 
 .horizontalNav button {
   margin: 20px;
-  background-color: #2B8BC9;
+  background-color: #2b8bc9;
   padding: 5px 10px;
   border-radius: 15%;
-  color: white
+  color: white;
+}
+
+.appContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .verticalNav {
-  position: absolute;
+  /* position: absolute; */
   display: flex;
   flex-direction: column;
-  width: 200px;
-  border-right:2px solid #8CC0E2;
+  width: 20%;
+  border-right: 1px solid #8cc0e2;
   height: 100%;
+  text-align: center;
   /* bottom: 0; */
 }
+
+@media (max-width: 568px) {
+  .verticalNav {
+    width: 100%;
+    justify-content: space-between;
+    border-right: 0;
+    border-bottom: 1px solid #8cc0e2;
+    margin-bottom: 1%;
+  }
+}
+
 .verticalNav h3 {
-  background-color: #D6E8F3;
-  padding: 20px;
-  height: 100%
+  background-color: #d6e8f3;
+  /* padding: 20px; */
+  height: 100%;
 }
 .navAndDash {
+  max-width: 1280px;
+  width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between
+  justify-content: space-between;
+}
+
+@media (max-width: 568px) {
+  .navAndDash {
+    flex-direction: column;
+  }
 }
 
 .dashboard {
-  position: absolute;
-  left: 200px;
-  top: 80px;
-  right: 0;
-  bottom: 0;
-  background-image: url("https://www.runragnar.com/ragnar-trail-blog/wp-content/uploads/2014/10/halloween-trail-runner.jpg")
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+
+  /* background-image: url("https://www.runragnar.com/ragnar-trail-blog/wp-content/uploads/2014/10/halloween-trail-runner.jpg") */
+}
+
+@media (max-width: 568px) {
+  .dashboard {
+    width: 100%;
+  }
 }

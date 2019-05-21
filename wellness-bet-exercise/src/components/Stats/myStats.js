@@ -1,26 +1,31 @@
 import React from "react";
 import Button from "@material-ui/core/Button";
+import StepsForm from "./StepsForm";
+import "./stats.css";
 
 class MyStats extends React.Component {
+  state = {
+    renderToggle: false
+  };
+  renderForm = () => {
+    return this.setState({
+      renderToggle: !this.state.renderToggle
+    });
+  };
+
   render() {
+    console.log("steps", this.props);
     return (
-      <div>
+      <div className="stats-components-titles">
         <>
-          <h3>My Stats</h3>
-          <Button>Log Activity</Button>
-          {/** on click this should route to the form to input your data */}
+          {this.props ? <h6>#of steps placeholder</h6> : <h3>0</h3>}
+
+          {!this.state.renderToggle ? (
+            <Button onClick={() => this.renderForm()}>Log Activity</Button>
+          ) : (
+            <StepsForm renderForm={() => this.renderForm()} />
+          )}
         </>
-        {/** design file has this in "workouts", but we are using weight and steps */}
-        <h2>Today</h2>
-        <p>
-          This will have either the steps or weight or heartrate(?) depending on
-          what kind of competition it is
-        </p>
-        <h2>Total</h2>
-        <p>
-          This will have either the steps or weight or heartrate(?) depending on
-          what kind of competition it is
-        </p>
       </div>
     );
   }
