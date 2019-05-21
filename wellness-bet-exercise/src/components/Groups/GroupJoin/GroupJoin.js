@@ -63,9 +63,10 @@ class GroupJoin extends React.Component {
     console.log("state groupjoin", this.state);
     return (
       <div className="GroupJoin">
-        <h1>Enter code to join a group</h1>
+        <h1>Join By Code</h1>
         <form onSubmit={this.handleSubmit}>
           <TextField
+            label="Secret Group Code"
             placeholder="Join Code"
             name="join_code"
             margin="normal"
@@ -73,7 +74,7 @@ class GroupJoin extends React.Component {
             onChange={this.handleChanges}
             value={this.state.join_code}
           />
-          <Button type="submit">submit join code</Button>
+          <Button type="submit">Join Group</Button>
         </form>
       </div>
     );
