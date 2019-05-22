@@ -12,6 +12,7 @@ import {
 } from "cloudinary-react";
 import Popup from "reactjs-popup";
 import "../Payment/payment.css";
+import { URL } from "../../constants/routes";
 
 class Group extends React.Component {
   state = {};
