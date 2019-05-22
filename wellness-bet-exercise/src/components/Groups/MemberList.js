@@ -31,11 +31,12 @@ class MemberList extends React.Component {
 
   render() {
     console.log("props memberlist", this.props.group);
+    console.log('########', this.props)
     return (
       <div className="memberlist-wrapper">
         {this.props.group ? (
           <div className="memberlist-container">
-            <h2 />
+            <h2/>
             {this.state.members.map(member => (
               <GroupMember member={member} />
             ))}

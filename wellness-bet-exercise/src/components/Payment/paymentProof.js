@@ -10,6 +10,7 @@ const Group = props =>{
 class Payment extends React.Component {
   render() {
     console.log(Group)
+    console.log('~~~~~~~~~~~~', this.props.group[0].admin_id)
     return (
       <div>
         <Dropzone onDrop={this.handleDrop}>
@@ -45,11 +46,12 @@ class Payment extends React.Component {
           const data = response.data;
           const fileURL = data.secure_url;
           const groupID = this.props.group[0].group_id;
+          const userID = this.props.group[0].admin_id;
           
           console.log(data, fileURL, groupID);
           console.log(this.props)
           //:user_id/:group_id` REPLACE numbers at end of URL
-            return axios.put(`${ROUTES.URL}/api/participants/buyinproof/1/${groupID}`, {
+            return axios.put(`${ROUTES.URL}/api/participants/buyinproof/${userID}/${groupID}`, {
             buyin_proof: fileURL,
     
           })

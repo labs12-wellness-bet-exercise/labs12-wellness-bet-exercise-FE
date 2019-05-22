@@ -5,7 +5,9 @@ import "./GroupJoin.css";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 
+
 class GroupJoin extends React.Component {
+  
   constructor(props) {
     super(props);
     this.state = {
@@ -60,6 +62,7 @@ class GroupJoin extends React.Component {
   };
 
   render() {
+    console.log('~~~~~~~~~~~~~~~', this.props)
     console.log("state groupjoin", this.state);
     return (
       <div className="GroupJoin">
