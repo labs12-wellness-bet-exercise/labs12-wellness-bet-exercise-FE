@@ -2,6 +2,8 @@ import Dropzone from "react-dropzone";
 import axios from "axios";
 import React from "react";
 import './payment.css';
+import * as ROUTES from '../../constants/routes';
+
 
 class Payment extends React.Component {
   render() {
@@ -12,7 +14,7 @@ class Payment extends React.Component {
             <section>
               <div className='payment-drag-n-drop'{...getRootProps()}>
                 <input {...getInputProps()} />
-                <p>Drag 'n' drop some files here, or click to select files</p>
+                <p>Drop some files here, or click to select files</p>
               </div>
             </section>
           )}
@@ -39,13 +41,22 @@ class Payment extends React.Component {
         .then(response => {
           const data = response.data;
           const fileURL = data.secure_url; // Store this for future use
+          
           console.log(data, fileURL);
-        });
+          // return axios.put(`${ROUTES.URL}/api/participants/buyinproof/:user_id/:group_id`, {
+            return axios.put(`${ROUTES.URL}/api/participants/buyinproof/1/1`, {
+          buyin_proof: fileURL,
+    
+          })
+          
+        })
+        
     });
 
     // Once all the files are uploaded
     axios.all(uploaders).then(() => {
       // ... perform after upload is successful operation
+      //Post URLto DB
       console.log('Your Upload Was Successful!')
     });
   };
