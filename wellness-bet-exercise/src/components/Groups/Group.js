@@ -105,7 +105,7 @@ class Group extends React.Component {
                 group={this.state.group}
                 pathname={this.props.location.pathname}
               />
-              <Payment />
+              <Payment group={this.state.group}/>
             </div>
           ) : (
             <p>Loading...</p>
