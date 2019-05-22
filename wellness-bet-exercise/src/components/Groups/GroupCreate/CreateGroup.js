@@ -44,7 +44,8 @@ class CreateGroup extends React.Component {
       admin_id: this.props.user_id,
       join_code: (new Date() % 9e6).toString(36)
     };
-
+    
+    console.log('~~~~~~~~~~~~~~~~~~~~', this.props);
     console.log(group);
     console.log("create group state", this.state);
     console.log("user id from props", this.props.user_id);
