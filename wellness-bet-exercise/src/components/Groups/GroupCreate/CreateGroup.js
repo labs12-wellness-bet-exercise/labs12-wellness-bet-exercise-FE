@@ -4,7 +4,9 @@ import * as ROUTES from "../../../constants/routes";
 import axios from "axios";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
-//import InputAdornment from "@material-ui/core/InputAdornment";
+
+import InputAdornment from "@material-ui/core/InputAdornment";
+
 
 class CreateGroup extends React.Component {
   state = {
@@ -78,6 +80,7 @@ class CreateGroup extends React.Component {
   render() {
     return (
       <div className="groupFormContainer">
+        <h1>New Group</h1>
         <form onSubmit={this.submitGroup}>
           <TextField
             label="Group Name"
@@ -114,17 +117,17 @@ class CreateGroup extends React.Component {
           <TextField
             margin="normal"
             variant="outlined"
-            label="Buy in Amount in USD ($)"
+            label="Buy in Amount"
             type="number"
             name="buy_in_amount"
             value={this.state.buy_in_amount}
             placeholder="Enter buy-in amount..."
             onChange={this.handleChange}
-            // InputProps={{
-            //   startAdornment: (
-            //     <InputAdornment position="start">Kg</InputAdornment>
-            //   )
-            // }}
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">$</InputAdornment>
+              )
+            }}
             // startAdornment={<InputAdornment position="start">$</InputAdornment>}
           />
 
@@ -151,7 +154,9 @@ class CreateGroup extends React.Component {
             value={this.state.group_message}
             onChange={this.handleChange}
           />
+
           <Button onClick={this.submitGroup}>Submit</Button>
+
         </form>
       </div>
     );
