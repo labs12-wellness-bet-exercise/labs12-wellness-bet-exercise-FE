@@ -11,6 +11,7 @@ import StatsContainer from "../Stats/statsContainer";
 import Button from "@material-ui/core/Button";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
+import CssBaseline from "@material-ui/core/CssBaseline";
 
 class Navigation extends React.Component {
   state = {};
@@ -39,6 +40,7 @@ class Navigation extends React.Component {
     return (
       <div>
         {console.log("nav props", this.props)}
+        <CssBaseline />
         <AppBar>
           <Toolbar className="horizontalNav">
             <Button
