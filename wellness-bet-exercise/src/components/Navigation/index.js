@@ -8,10 +8,12 @@ import GroupJoin from "../Groups/GroupJoin/GroupJoin";
 import Group from "../Groups/Group";
 import GroupData from "../Groups/GroupData";
 import StatsContainer from "../Stats/statsContainer";
+
 import Button from "@material-ui/core/Button";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import CssBaseline from "@material-ui/core/CssBaseline";
+
 
 class Navigation extends React.Component {
   state = {};

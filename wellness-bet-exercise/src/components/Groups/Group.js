@@ -2,7 +2,16 @@ import React from "react";
 import axios from "axios";
 import MemberList from "./MemberList.js";
 import Payment from "../Payment/paymentProof.js";
+import "../Payment/payment.css";
 import "./Group.css";
+import {
+  Image,
+  Video,
+  Transformation,
+  CloudinaryContext
+} from "cloudinary-react";
+import Popup from "reactjs-popup";
+import "../Payment/payment.css";
 
 class Group extends React.Component {
   state = {};
@@ -36,6 +45,60 @@ class Group extends React.Component {
               <h5>Buy-in Amount: ${this.state.group[0].buy_in_amount}</h5>
               <h5>Current Pot Total: </h5>{" "}
               {/** need to make the calculation based on whose approved */}
+              <div>
+                <Popup
+                  trigger={
+                    <button className="button"> See Proof Of Payment </button>
+                  }
+                  modal
+                >
+                  {close => (
+                    <div className="modal">
+                      <a className="close" onClick={close}>
+                        &times;
+                      </a>
+                      <div className="header"> Proof of Payment </div>
+                      <div className="content">
+                        {this.state.group[0].group_name}
+                        <img src={this.state.group[0].group_photo} alt="group photo" />
+                      </div>
+                      <div className ='payment'>
+                      <Image cloudName="demo" publicId="sample" />
+                      </div>
+                      
+                      <div className="actions">
+                        <Popup
+                          trigger={
+                            <button className="button">
+                              {" "}
+                              Approve Payment{" "}
+                            </button>
+                          }
+                          position="top center"
+                          closeOnDocumentClick
+                        >
+                          <span>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing
+                            elit. Beatae magni omnis delectus nemo, maxime
+                            molestiae dolorem numquam mollitia, voluptate ea,
+                            accusamus excepturi deleniti ratione sapiente!
+                            Laudantium, aperiam doloribus. Odit, aut.
+                          </span>
+                        </Popup>
+                        <button
+                          className="button"
+                          onClick={() => {
+                            console.log("modal closed ");
+                            close();
+                          }}
+                        >
+                          Deny Payment
+                        </button>
+                      </div>
+                    </div>
+                  )}
+                </Popup>
+              </div>
               <h5>Message From Admin: {this.state.group[0].group_message}</h5>
               <MemberList
                 group={this.state.group}
