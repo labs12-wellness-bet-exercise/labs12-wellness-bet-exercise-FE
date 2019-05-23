@@ -46,15 +46,15 @@ class Payment extends React.Component {
         .then(response => {
           const data = response.data;
           const fileURL = data.secure_url;
-          const user_id= this.props.payment.userData.member.google_uuid;
+          const user_id= this.props.payment.userData.member.user_id;
           const group_id = this.props.payment.userData.member.group_id;
           
           
           console.log(data, fileURL);
           console.log('Payment Proof Props', this.props)
-          console.log('user_id', this.props.payment.userData.member.google_uuid)
+          console.log('user_id', this.props.payment.userData.member.user_id)
           
-          console.log('group_id', this.props.payment.userData.member.google_uuid)
+          console.log('group_id', this.props.payment.userData.member.group_id)
           //:user_id/:group_id` REPLACE numbers at end of URL
             return axios.put(`${ROUTES.URL}/api/participants/buyinproof/${user_id}/${group_id}`, {
             buyin_proof: fileURL,
