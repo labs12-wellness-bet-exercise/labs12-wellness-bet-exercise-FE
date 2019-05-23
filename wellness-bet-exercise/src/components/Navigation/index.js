@@ -8,7 +8,8 @@ import GroupJoin from "../Groups/GroupJoin/GroupJoin";
 import Group from "../Groups/Group";
 import GroupData from "../Groups/GroupData";
 import StatsContainer from "../Stats/statsContainer";
-
+import Payment  from '../Payment/paymentProof';
+import GroupMember from '../Groups/GroupMember';
 import Button from "@material-ui/core/Button";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -16,8 +17,9 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 
 
 class Navigation extends React.Component {
+  
   state = {};
-
+  
   getGroupInfo = () => {
     console.log("nav getgroups", this.props.user_id);
     axios
@@ -65,6 +67,7 @@ class Navigation extends React.Component {
               <Link to="/api/createGroup">Create Group</Link>
               <Link to="/api/groupJoin">Join Group</Link>
               <Link to="/api/statsContainer">Stats</Link>
+              <Link to="/api/member">Member View</Link>
             </div>
 
             <div className="dashboard">
@@ -105,6 +108,14 @@ class Navigation extends React.Component {
                   );
                 }}
               />
+              {/* <Route
+                path={"/api/members"}
+                render={renderProps => {
+                  return (
+                  //  <GroupMember {...this.props} {...renderProps}/>
+                  );
+                }}
+              /> */}
             </div>
           </div>
         </div>
