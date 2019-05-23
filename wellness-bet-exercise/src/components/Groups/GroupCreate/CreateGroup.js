@@ -4,7 +4,9 @@ import * as ROUTES from "../../../constants/routes";
 import axios from "axios";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
+
 import InputAdornment from "@material-ui/core/InputAdornment";
+
 
 class CreateGroup extends React.Component {
   state = {
@@ -13,8 +15,22 @@ class CreateGroup extends React.Component {
     end_date: "",
     buy_in_amount: null,
     group_message: "",
-    group_photo: ""
+
+    group_photo:
+      "https://greatist.com/sites/default/files/best-time-feature.jpg",
+    //trying to add a couple mor fields below
+    admin_id: null,
+    join_code: "",
+    group_id: null
   };
+
+  componentDidMount() {
+    this.setState({
+      ...this.state,
+      admin_id: this.props.user_id,
+      join_code: (new Date() % 9e6).toString(36)
+    });
+  }
 
   submitGroup = e => {
     e.preventDefault();
@@ -28,24 +44,30 @@ class CreateGroup extends React.Component {
       admin_id: this.props.user_id,
       join_code: (new Date() % 9e6).toString(36)
     };
+    
+    console.log('~~~~~~~~~~~~~~~~~~~~', this.props);
     console.log(group);
+    console.log("create group state", this.state);
+    console.log("user id from props", this.props.user_id);
     axios
       .post(`${ROUTES.URL}/api/groups`, group)
       .then(res => {
-        console.log(res.data);
-        this.setState({
-          ...this.state,
-          group_id: res.data.groupId
+        this.setState({ group_id: res.data.group_id });
+        console.log("post to groups response", res.data);
+        console.log(
+          "admin and group",
+          this.state.admin_id,
+          res.data.group_id,
+          this.state
+        );
+      })
+      .then(res => {
+        axios.post(`${ROUTES.URL}/api/participants`, {
+          user_id: this.props.user_id,
+          group_id: this.state.group_id
         });
       })
-      .then(
-        console.log(this.state.admin_id, this.state.group_id),
-        axios.post(`${ROUTES.URL}/api/participants`, {
-          user_id: this.state.admin_id,
-          group_id: this.state.group_id
-        })
-      )
-      .then(res => console.log(res))
+      //.then(res => console.log("create group consolelog", res))
       .catch(err => console.log(err));
   };
 
@@ -132,7 +154,9 @@ class CreateGroup extends React.Component {
             value={this.state.group_message}
             onChange={this.handleChange}
           />
-          <Button>Create</Button>
+
+          <Button onClick={this.submitGroup}>Submit</Button>
+
         </form>
       </div>
     );

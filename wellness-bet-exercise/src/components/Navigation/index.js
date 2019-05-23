@@ -8,6 +8,7 @@ import GroupJoin from "../Groups/GroupJoin/GroupJoin";
 import Group from "../Groups/Group";
 import GroupData from "../Groups/GroupData";
 import StatsContainer from "../Stats/statsContainer";
+
 import Button from "@material-ui/core/Button";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -61,6 +62,7 @@ const styles = theme => ({
   },
   toolbar: theme.mixins.toolbar
 });
+
 
 class Navigation extends React.Component {
   state = { open: true };
