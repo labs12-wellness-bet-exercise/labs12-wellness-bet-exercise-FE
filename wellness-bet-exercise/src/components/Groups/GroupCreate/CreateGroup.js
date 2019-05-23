@@ -107,7 +107,6 @@ class CreateGroup extends React.Component {
                 <InputAdornment position="start">$</InputAdornment>
               )
             }}
-            // startAdornment={<InputAdornment position="start">$</InputAdornment>}
           />
 
           <TextField

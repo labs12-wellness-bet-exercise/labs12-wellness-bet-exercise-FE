@@ -22,9 +22,17 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
-import MailIcon from "@material-ui/icons/Mail";
+import {
+  Create,
+  PersonAdd,
+  BarChart,
+  ExpandLess,
+  ExpandMore,
+  WhatshotOutlined
+} from "@material-ui/icons";
+import Collapse from "@material-ui/core/Collapse";
 
-const drawerWidth = 240;
+const drawerWidth = 300;
 
 const styles = theme => ({
   root: {
@@ -40,15 +48,18 @@ const styles = theme => ({
   drawerPaper: {
     width: drawerWidth
   },
-  content: {
+  dashboard: {
     flexGrow: 1,
     padding: theme.spacing.unit * 3
+  },
+  nested: {
+    paddingLeft: theme.spacing.unit * 4
   },
   toolbar: theme.mixins.toolbar
 });
 
 class Navigation extends React.Component {
-  state = {};
+  state = { open: true };
 
   getGroupInfo = () => {
     console.log("nav getgroups", this.props.user_id);
@@ -68,6 +79,10 @@ class Navigation extends React.Component {
     this.getGroupInfo();
   }
 
+  handleClick = () => {
+    this.setState(state => ({ open: !state.open }));
+  };
+
   render() {
     console.log("nav state", this.state);
     console.log("nav props", this.props);
@@ -79,7 +94,7 @@ class Navigation extends React.Component {
         <AppBar position="fixed" className={classes.appBar}>
           <Toolbar className="horizontalNav">
             <Typography variant="h6" color="inherit" noWrap>
-              Wellness Bet Exercise
+              BetYourSteps
             </Typography>
             <Button
               variant="contained"
@@ -102,80 +117,102 @@ class Navigation extends React.Component {
           <div className={classes.toolbar} />
           <Divider />
           <List>
-            {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-              <ListItem button key={text}>
-                <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItem>
-            ))}
+            <ListItem
+              button
+              component={Link}
+              className={classes.button}
+              to="/api/createGroup"
+            >
+              <ListItemIcon>
+                <Create />
+              </ListItemIcon>
+              <ListItemText inset primary="Create Group" />
+            </ListItem>
+            <ListItem
+              button
+              component={Link}
+              className={classes.button}
+              to="/api/groupJoin"
+            >
+              <ListItemIcon>
+                <PersonAdd />
+              </ListItemIcon>
+              <ListItemText inset primary="Join Group" />
+            </ListItem>
+            <ListItem
+              button
+              component={Link}
+              className={classes.button}
+              to="/api/statsContainer"
+            >
+              <ListItemIcon>
+                <BarChart />
+              </ListItemIcon>
+              <ListItemText inset primary="Stats" />
+            </ListItem>
           </List>
           <Divider />
           <List>
-            {["All mail", "Trash", "Spam"].map((text, index) => (
-              <ListItem button key={text}>
-                <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItem>
-            ))}
+            <ListItem button onClick={this.handleClick}>
+              <ListItemIcon>
+                <InboxIcon />
+              </ListItemIcon>
+              <ListItemText inset primary="My Groups" />
+              {this.state.open ? <ExpandLess /> : <ExpandMore />}
+            </ListItem>
+            <Collapse in={this.state.open} timeout="auto" unmountOnExit>
+              <List component="div" disablePadding>
+                <ListItem button className={classes.nested}>
+                  <ListItemIcon>
+                    <WhatshotOutlined />
+                  </ListItemIcon>
+                  <ListItemText inset primary="Group 1" />
+                </ListItem>
+              </List>
+            </Collapse>
+            <GroupData user_id={this.props.user_id} {...this.props} />
           </List>
         </Drawer>
 
-        <div className="appContainer">
-          <div className="navAndDash">
-            <div className="verticalNav">
-              <div className="myGroupsHeader">
-                <h3>My Groups</h3>
-                <GroupData user_id={this.props.user_id} {...this.props} />
-              </div>
-
-              <Link to="/api/createGroup">Create Group</Link>
-              <Link to="/api/groupJoin">Join Group</Link>
-              <Link to="/api/statsContainer">Stats</Link>
-            </div>
-
-            <div className="dashboard">
-              <Route
-                path={ROUTES.GROUP_VIEW}
-                render={routeProps => {
-                  return (
-                    <Group
-                      {...routeProps}
-                      {...this.props}
-                      user_id={this.props.user.user_id}
-                      buyin={this.state.buy_in_amount}
-                    />
-                  );
-                }}
-              />
-              <Route
-                path={ROUTES.CREATE_GROUP}
-                render={routeProps => (
-                  <CreateGroup {...routeProps} {...this.props} />
-                )}
-              />
-              <Route
-                path={ROUTES.GROUP_JOIN}
-                render={routeProps => {
-                  return <GroupJoin {...this.props} {...routeProps} />;
-                }}
-              />
-              <Route
-                path={"/api/statsContainer"}
-                render={renderProps => {
-                  return (
-                    <StatsContainer
-                      {...renderProps}
-                      state={this.state}
-                      {...this.props}
-                    />
-                  );
-                }}
-              />
-            </div>
+        <div className="navAndDash">
+          <div className="dashboard">
+            <Route
+              path={ROUTES.GROUP_VIEW}
+              render={routeProps => {
+                return (
+                  <Group
+                    {...routeProps}
+                    {...this.props}
+                    user_id={this.props.user.user_id}
+                    buyin={this.state.buy_in_amount}
+                  />
+                );
+              }}
+            />
+            <Route
+              path={ROUTES.CREATE_GROUP}
+              render={routeProps => (
+                <CreateGroup {...routeProps} {...this.props} />
+              )}
+            />
+            <Route
+              path={ROUTES.GROUP_JOIN}
+              render={routeProps => {
+                return <GroupJoin {...this.props} {...routeProps} />;
+              }}
+            />
+            <Route
+              path={"/api/statsContainer"}
+              render={renderProps => {
+                return (
+                  <StatsContainer
+                    {...renderProps}
+                    state={this.state}
+                    {...this.props}
+                  />
+                );
+              }}
+            />
           </div>
         </div>
       </div>
