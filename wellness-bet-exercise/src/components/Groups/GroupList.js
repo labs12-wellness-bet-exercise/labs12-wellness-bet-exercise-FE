@@ -30,7 +30,7 @@ class GroupList extends React.Component {
         })}
       </div>
     ) : (
-      <h2>Create or Join a Group!</h2>
+      <h2>You are not apart of any group, create or join one!</h2>
     );
 
     // <div>testing</div>
