@@ -28,7 +28,7 @@ import {
   BarChart,
   ExpandLess,
   ExpandMore,
-  WhatshotOutlined
+  Whatshot
 } from "@material-ui/icons";
 import Collapse from "@material-ui/core/Collapse";
 
@@ -36,7 +36,8 @@ const drawerWidth = 300;
 
 const styles = theme => ({
   root: {
-    display: "flex"
+    display: "flex",
+    flexGrow: 1
   },
   appBar: {
     zIndex: theme.zIndex.drawer + 1
@@ -51,6 +52,9 @@ const styles = theme => ({
   dashboard: {
     flexGrow: 1,
     padding: theme.spacing.unit * 3
+  },
+  grow: {
+    flexGrow: 1
   },
   nested: {
     paddingLeft: theme.spacing.unit * 4
@@ -88,17 +92,17 @@ class Navigation extends React.Component {
     console.log("nav props", this.props);
     const { classes } = this.props;
     return (
-      <div>
+      <div className={classes.root}>
         {console.log("nav props", this.props)}
         <CssBaseline />
         <AppBar position="fixed" className={classes.appBar}>
-          <Toolbar className="horizontalNav">
-            <Typography variant="h6" color="inherit" noWrap>
+          <Toolbar>
+            <Typography variant="h6" color="inherit" className={classes.grow}>
               BetYourSteps
             </Typography>
             <Button
               variant="contained"
-              color="primary"
+              color="inherit"
               onClick={this.props.logout}
             >
               logout
@@ -164,7 +168,7 @@ class Navigation extends React.Component {
               <List component="div" disablePadding>
                 <ListItem button className={classes.nested}>
                   <ListItemIcon>
-                    <WhatshotOutlined />
+                    <Whatshot />
                   </ListItemIcon>
                   <ListItemText inset primary="Group 1" />
                 </ListItem>
