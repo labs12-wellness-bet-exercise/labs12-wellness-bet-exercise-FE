@@ -8,4 +8,5 @@ export const CREATE_GROUP = "/api/createGroup";
 export const GROUP_JOIN = "/api/groupJoin";
 export const GROUP_VIEW = "/api/groups/:id";
 export const STEPS = "/api/steps/:id";
+export const STRIPE = '/checkout';
 //hey

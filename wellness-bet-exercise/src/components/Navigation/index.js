@@ -8,7 +8,7 @@ import GroupJoin from "../Groups/GroupJoin/GroupJoin";
 import Group from "../Groups/Group";
 import GroupData from "../Groups/GroupData";
 import StatsContainer from "../Stats/statsContainer";
-
+import Checkout from '../stripe/Checkout'
 import Button from "@material-ui/core/Button";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -65,6 +65,7 @@ class Navigation extends React.Component {
               <Link to="/api/createGroup">Create Group</Link>
               <Link to="/api/groupJoin">Join Group</Link>
               <Link to="/api/statsContainer">Stats</Link>
+              <Link to={ROUTES.STRIPE}>Upgrade to Premium</Link>
             </div>
 
             <div className="dashboard">
@@ -101,6 +102,21 @@ class Navigation extends React.Component {
                       {...renderProps}
                       state={this.state}
                       {...this.props}
+                    />
+                  );
+                }}
+              />
+              <Route
+                path={ROUTES.STRIPE}
+                render={routeProps => {
+                  return (
+                    <Checkout
+                      {...routeProps}
+                      {...this.props}
+                      user_id={this.props.user_id}
+                      name={'Wellness Bet-Exercise'}
+                      description={'Premium monthly membership allows you to creat and participate in multiple groups'}
+                      amount={5}
                     />
                   );
                 }}
