@@ -15,41 +15,9 @@
   color: white;
 } */
 
-.appContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.verticalNav {
-  /* position: absolute; */
-  display: flex;
-  flex-direction: column;
-  width: 20%;
-  border-right: 1px solid #8cc0e2;
-  height: 100%;
-  text-align: center;
-  /* bottom: 0; */
-}
-
-@media (max-width: 568px) {
-  .verticalNav {
-    width: 100%;
-    justify-content: space-between;
-    border-right: 0;
-    border-bottom: 1px solid #8cc0e2;
-    margin-bottom: 1%;
-  }
-}
-
-.verticalNav h3 {
-  background-color: #d6e8f3;
-  /* padding: 20px; */
-  height: 100%;
-}
 .navAndDash {
   max-width: 1280px;
-  width: 100%;
+  width: 76%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -66,12 +34,4 @@
   display: flex;
   flex-direction: column;
   align-content: center;
-
-  /* background-image: url("https://www.runragnar.com/ragnar-trail-blog/wp-content/uploads/2014/10/halloween-trail-runner.jpg") */
-}
-
-@media (max-width: 568px) {
-  .dashboard {
-    width: 100%;
-  }
 }

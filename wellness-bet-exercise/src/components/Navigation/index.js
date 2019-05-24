@@ -8,6 +8,7 @@ import GroupJoin from "../Groups/GroupJoin/GroupJoin";
 import Group from "../Groups/Group";
 import GroupData from "../Groups/GroupData";
 import StatsContainer from "../Stats/statsContainer";
+import Container from "@material-ui/core/Container";
 import Payment  from '../Payment/paymentProof';
 import GroupMember from '../Groups/GroupMember';
 import Button from "@material-ui/core/Button";
@@ -63,7 +64,6 @@ const styles = theme => ({
   },
   toolbar: theme.mixins.toolbar
 });
-
 
 class Navigation extends React.Component {
 
@@ -185,7 +185,7 @@ class Navigation extends React.Component {
         </Drawer>
 
         <div className="navAndDash">
-          <div className="dashboard">
+          <Container maxWidth="md">
             <Route
               path={ROUTES.GROUP_VIEW}
               render={routeProps => {
@@ -224,7 +224,8 @@ class Navigation extends React.Component {
               }}
             />
 
-          </div>
+          </Container>
+
         </div>
       </div>
     );
