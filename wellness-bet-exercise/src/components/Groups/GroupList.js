@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 
 import GroupTitle from "./GroupTitle";
 import StatsContainer from "../Stats/statsContainer";
+import Typography from "@material-ui/core/Typography";
 
 class GroupList extends React.Component {
   render() {
@@ -30,7 +31,9 @@ class GroupList extends React.Component {
         })}
       </div>
     ) : (
-      <h2>You are not apart of any group, create or join one!</h2>
+      <Typography variant="h6" color="inherit">
+        You are not apart of any group, create or join one!
+      </Typography>
     );
 
     // <div>testing</div>
