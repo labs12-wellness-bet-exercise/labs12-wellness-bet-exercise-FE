@@ -3,6 +3,7 @@ import axios from "axios";
 import React from "react";
 import './payment.css';
 import * as ROUTES from '../../constants/routes';
+import Popup from "reactjs-popup";
 
 const Group = props =>{
  return <h1>{props.group}</h1>
@@ -10,7 +11,7 @@ const Group = props =>{
 class Payment extends React.Component {
   render() {
     console.log(Group)
-    console.log('~~~~~~~~~~~~', this.props.group[0].admin_id)
+    console.log('~~~~~~~~~~~~', this.props)
     return (
       <div>
         <Dropzone onDrop={this.handleDrop}>
@@ -45,13 +46,17 @@ class Payment extends React.Component {
         .then(response => {
           const data = response.data;
           const fileURL = data.secure_url;
-          const groupID = this.props.group[0].group_id;
-          const userID = this.props.group[0].admin_id;
+          const user_id= this.props.payment.userData.member.user_id;
+          const group_id = this.props.payment.userData.member.group_id;
           
-          console.log(data, fileURL, groupID);
-          console.log(this.props)
+          
+          console.log(data, fileURL);
+          console.log('Payment Proof Props', this.props)
+          console.log('user_id', this.props.payment.userData.member.user_id)
+          
+          console.log('group_id', this.props.payment.userData.member.group_id)
           //:user_id/:group_id` REPLACE numbers at end of URL
-            return axios.put(`${ROUTES.URL}/api/participants/buyinproof/${userID}/${groupID}`, {
+            return axios.put(`${ROUTES.URL}/api/participants/buyinproof/${user_id}/${group_id}`, {
             buyin_proof: fileURL,
     
           })

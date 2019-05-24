@@ -9,6 +9,8 @@ import Group from "../Groups/Group";
 import GroupData from "../Groups/GroupData";
 import StatsContainer from "../Stats/statsContainer";
 import Container from "@material-ui/core/Container";
+import Payment  from '../Payment/paymentProof';
+import GroupMember from '../Groups/GroupMember';
 import Button from "@material-ui/core/Button";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -64,7 +66,9 @@ const styles = theme => ({
 });
 
 class Navigation extends React.Component {
+
   state = { open: true };
+
 
   getGroupInfo = () => {
     console.log("nav getgroups", this.props.user_id);
@@ -110,6 +114,7 @@ class Navigation extends React.Component {
             </Button>
           </Toolbar>
         </AppBar>
+
 
         <Drawer
           className={classes.drawer}
@@ -218,7 +223,9 @@ class Navigation extends React.Component {
                 );
               }}
             />
+
           </Container>
+
         </div>
       </div>
     );
