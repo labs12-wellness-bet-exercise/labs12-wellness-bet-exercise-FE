@@ -12,6 +12,7 @@ import {
 } from "cloudinary-react";
 import Popup from "reactjs-popup";
 import "../Payment/payment.css";
+import { URL } from "../../constants/routes";
 
 class Group extends React.Component {
   state = {};
@@ -104,7 +105,7 @@ class Group extends React.Component {
                 group={this.state.group}
                 pathname={this.props.location.pathname}
               />
-              <Payment />
+              {/* <Payment /> */}
             </div>
           ) : (
             <p>Loading...</p>

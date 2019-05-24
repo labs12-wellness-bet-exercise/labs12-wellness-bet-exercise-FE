@@ -2,9 +2,16 @@ import Dropzone from "react-dropzone";
 import axios from "axios";
 import React from "react";
 import './payment.css';
+import * as ROUTES from '../../constants/routes';
+import Popup from "reactjs-popup";
 
+const Group = props =>{
+ return <h1>{props.group}</h1>
+}
 class Payment extends React.Component {
   render() {
+    console.log(Group)
+    console.log('~~~~~~~~~~~~', this.props)
     return (
       <div>
         <Dropzone onDrop={this.handleDrop}>
@@ -12,7 +19,7 @@ class Payment extends React.Component {
             <section>
               <div className='payment-drag-n-drop'{...getRootProps()}>
                 <input {...getInputProps()} />
-                <p>Drag 'n' drop some files here, or click to select files</p>
+                <p>Drop some files here, or click to select files</p>
               </div>
             </section>
           )}
@@ -38,14 +45,30 @@ class Payment extends React.Component {
         })
         .then(response => {
           const data = response.data;
-          const fileURL = data.secure_url; // Store this for future use
+          const fileURL = data.secure_url;
+          const user_id= this.props.payment.userData.member.user_id;
+          const group_id = this.props.payment.userData.member.group_id;
+          
+          
           console.log(data, fileURL);
-        });
+          console.log('Payment Proof Props', this.props)
+          console.log('user_id', this.props.payment.userData.member.user_id)
+          
+          console.log('group_id', this.props.payment.userData.member.group_id)
+          //:user_id/:group_id` REPLACE numbers at end of URL
+            return axios.put(`${ROUTES.URL}/api/participants/buyinproof/${user_id}/${group_id}`, {
+            buyin_proof: fileURL,
+    
+          })
+          
+        })
+        
     });
 
     // Once all the files are uploaded
     axios.all(uploaders).then(() => {
       // ... perform after upload is successful operation
+      //Post URLto DB
       console.log('Your Upload Was Successful!')
     });
   };
