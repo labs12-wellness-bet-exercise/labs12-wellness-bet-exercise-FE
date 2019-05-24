@@ -8,7 +8,7 @@ import GroupJoin from "../Groups/GroupJoin/GroupJoin";
 import Group from "../Groups/Group";
 import GroupData from "../Groups/GroupData";
 import StatsContainer from "../Stats/statsContainer";
-import Checkout from '../stripe/Checkout'
+import Premium from '../stripe/Premium'
 import Button from "@material-ui/core/Button";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -110,12 +110,12 @@ class Navigation extends React.Component {
                 path={ROUTES.STRIPE}
                 render={routeProps => {
                   return (
-                    <Checkout
+                    <Premium
                       {...routeProps}
                       {...this.props}
                       user_id={this.props.user_id}
                       name={'Wellness Bet-Exercise'}
-                      description={'Premium monthly membership allows you to creat and participate in multiple groups'}
+                      description={'Premium monthly membership'}
                       amount={5}
                     />
                   );

@@ -5,7 +5,7 @@ import StripeCheckout from 'react-stripe-checkout';
 import STRIPE_PUBLISHABLE from '../../constants/stripe';
 import * as ROUTES from '../../constants/routes';
 
-const CURRENCY = 'US';
+const CURRENCY = 'USD';
 
 const fromDollarToCent = amount => amount * 100;
 
