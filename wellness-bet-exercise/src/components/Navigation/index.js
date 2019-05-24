@@ -63,7 +63,6 @@ const styles = theme => ({
   toolbar: theme.mixins.toolbar
 });
 
-
 class Navigation extends React.Component {
   state = { open: true };
 
